@@ -148,8 +148,11 @@ If you are using this repo as a skill, read in this order:
 16. `references/repl-verification-and-evaluation.md`
 17. `references/repl-failure-and-recovery.md`
 18. `references/repl-maturity-matrix.md`
-19. `references/repl-source-baseline.md`
-20. `references/repl-design-opencode.md`
+19. `references/repl-source-traceability.md`
+20. `references/repl-subsystem-map-codex.md`
+21. `references/repl-subsystem-map-opencode.md`
+22. `references/repl-source-baseline.md`
+23. `references/repl-design-opencode.md`
 
 ## Example Import
 

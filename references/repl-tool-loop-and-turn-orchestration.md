@@ -3,6 +3,12 @@
 This file describes the recommended multiturn orchestration model for an agent shell built on top
 of `mina-repl-core`.
 
+## Evidence Status
+
+- **Verified:** Codex models threads, turns, approvals, and typed items; OpenCode exposes session, permission, and tool APIs with explicit state concepts.
+- **Inferred:** the shell should expose tool-loop state directly to operators and clients.
+- **Recommended:** `mina-repl-core` should treat turn orchestration as a visible state machine.
+
 ## 1. Think in threads and turns
 
 Codex models conversations as threads and turns.

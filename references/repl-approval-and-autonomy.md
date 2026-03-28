@@ -3,6 +3,12 @@
 This file defines the recommended approval model for agent shells built on top of
 `mina-repl-core`.
 
+## Evidence Status
+
+- **Verified:** Codex documents explicit approval modes and config overrides; OpenCode documents permissions and their non-sandbox nature.
+- **Inferred:** approval/autonomy state belongs in the shell’s visible operator surface.
+- **Recommended:** `mina-repl-core` should keep approval policy outside the prompt loop and describe it honestly.
+
 ## Core Distinction
 
 Approval policy is not the same thing as sandboxing.

@@ -3,6 +3,12 @@
 This file describes how an agent shell built on `mina-repl-core` should structure context before
 the model sees a turn.
 
+## Evidence Status
+
+- **Verified:** Codex uses layered instructions, AGENTS/project-doc precedence, explicit context management, and explicit compaction/memory behavior.
+- **Inferred:** tool, review, and plan state should be treated as structured context inputs in a shell.
+- **Recommended:** `mina-repl-core` should keep context layers inspectable and intentionally composed.
+
 ## 1. Treat context as layers, not one blob
 
 Codex and OpenCode both imply a layered context model.

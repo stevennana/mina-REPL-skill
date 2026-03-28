@@ -43,6 +43,9 @@ class SkillLayoutTests(unittest.TestCase):
             "repl-verification-and-evaluation.md",
             "repl-failure-and-recovery.md",
             "repl-maturity-matrix.md",
+            "repl-source-traceability.md",
+            "repl-subsystem-map-codex.md",
+            "repl-subsystem-map-opencode.md",
             "repl-source-baseline.md",
             "repl-design-opencode.md",
         ):
@@ -51,6 +54,12 @@ class SkillLayoutTests(unittest.TestCase):
     def test_agents_metadata_mentions_skill_name(self) -> None:
         text = (ROOT / "agents" / "openai.yaml").read_text(encoding="utf-8")
         self.assertIn("mina-repl-core", text)
+
+    def test_traceability_reference_uses_status_vocabulary(self) -> None:
+        text = (ROOT / "references" / "repl-source-traceability.md").read_text(encoding="utf-8")
+        self.assertIn("Verified", text)
+        self.assertIn("Inferred", text)
+        self.assertIn("Recommended", text)
 
 
 if __name__ == "__main__":

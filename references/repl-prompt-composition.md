@@ -3,6 +3,12 @@
 This file describes how to compose prompt messages for a coding-agent shell on top of
 `mina-repl-core`.
 
+## Evidence Status
+
+- **Verified:** Codex exposes base/developer/compact instruction concepts; OpenCode exposes explicit default/plan/build prompt contracts.
+- **Inferred:** prompt composition works best as explicit layered templates rather than hidden string assembly.
+- **Recommended:** `mina-repl-core` should preserve those layers as first-class shell concepts.
+
 ## 1. Use explicit instruction layers
 
 Codex exposes `base_instructions`, `developer_instructions`, and `compact_prompt`.

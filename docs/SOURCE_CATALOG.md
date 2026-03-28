@@ -2,6 +2,7 @@
 
 The canonical machine-readable source catalog lives in `sources.yaml`.
 The canonical deep explanation of source usage lives in `references/repl-source-baseline.md`.
+The audit/traceability layer lives in `references/repl-source-traceability.md`.
 
 This file is the short human-readable summary.
 

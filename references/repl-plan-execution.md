@@ -3,6 +3,12 @@
 This file describes how a richer agent shell should manage plans, plan execution, and transitions
 between planning and implementation.
 
+## Evidence Status
+
+- **Verified:** OpenCode has explicit plan/build prompts and session plan files; Codex exposes todo-style state and plan-mode concepts.
+- **Inferred:** plan execution should remain resumable and visible during long sessions.
+- **Recommended:** `mina-repl-core` should model plans as explicit shell artifacts, not only chat prose.
+
 ## 1. Keep plan creation explicit
 
 Planning is not just “thinking before typing”.

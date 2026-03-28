@@ -19,6 +19,9 @@ Read these first for the actual REPL best-practice material:
 - `references/repl-verification-and-evaluation.md`
 - `references/repl-failure-and-recovery.md`
 - `references/repl-maturity-matrix.md`
+- `references/repl-source-traceability.md`
+- `references/repl-subsystem-map-codex.md`
+- `references/repl-subsystem-map-opencode.md`
 - `references/repl-source-baseline.md`
 
 Use this `docs/` copy as a short contributor-facing summary only.

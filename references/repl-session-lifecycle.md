@@ -3,6 +3,12 @@
 This file describes the session-level behavior that becomes important once a base REPL grows
 into a more capable agent shell.
 
+## Evidence Status
+
+- **Verified:** OpenCode models session metadata, fork, compact, revert, and permission state as first-class concepts.
+- **Inferred:** similar session concepts are necessary once a Python REPL shell grows beyond a minimal loop.
+- **Recommended:** `mina-repl-core` should keep session lifecycle explicit instead of encoding it only in UI state.
+
 ## Why Session Lifecycle Matters
 
 A useful coding-agent shell eventually needs more than a prompt loop.

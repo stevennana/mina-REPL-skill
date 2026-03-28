@@ -3,6 +3,12 @@
 This file defines the recommended memory and model-configuration policies for agent shells built
 on top of `mina-repl-core`.
 
+## Evidence Status
+
+- **Verified:** Codex separates persistent history from richer local composer state and has a dedicated memory subsystem; OpenCode exposes provider/model state explicitly in session shapes.
+- **Inferred:** long-term shell memory should include project-doc layers and compacted summaries.
+- **Recommended:** `mina-repl-core` should model memory and model config as operator-visible policy surfaces.
+
 ## 1. Separate short-term and long-term memory
 
 Do not treat "memory" as one blob.

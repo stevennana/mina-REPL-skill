@@ -53,4 +53,7 @@ For detailed runtime architecture, read:
 - `references/repl-verification-and-evaluation.md`
 - `references/repl-failure-and-recovery.md`
 - `references/repl-maturity-matrix.md`
+- `references/repl-source-traceability.md`
+- `references/repl-subsystem-map-codex.md`
+- `references/repl-subsystem-map-opencode.md`
 - `references/repl-design-opencode.md`

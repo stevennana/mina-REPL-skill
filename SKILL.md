@@ -32,6 +32,9 @@ Before redesigning or extending a REPL, read these references:
 - `references/repl-verification-and-evaluation.md`
 - `references/repl-failure-and-recovery.md`
 - `references/repl-maturity-matrix.md`
+- `references/repl-source-traceability.md`
+- `references/repl-subsystem-map-codex.md`
+- `references/repl-subsystem-map-opencode.md`
 - `references/repl-source-baseline.md`
 - `references/repl-design-opencode.md`
 

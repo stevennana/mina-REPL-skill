@@ -49,3 +49,4 @@ But it should not be treated as the current implementation architecture source o
 - Prefer current root docs and current skill samples when upstream sources disagree.
 - Prefer Python-native docs for runtime behavior details.
 - Use Codex sources mainly for packaging, instruction layering, and terminal-agent design posture.
+- For exact upstream coverage, use `repl-source-traceability.md`, `repl-subsystem-map-codex.md`, and `repl-subsystem-map-opencode.md`.
