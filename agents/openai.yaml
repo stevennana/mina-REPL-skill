@@ -1,0 +1,4 @@
+interface:
+  display_name: "Mina REPL Core"
+  short_description: "Build or extend a Python-native REPL runtime"
+  default_prompt: "Use $mina-repl-core to build or extend a Python-native AI REPL runtime with explicit chat, shell, and multiline modes, a dedicated shell bridge, persistent history and transcripts, and a REPL-first architecture."

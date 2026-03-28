@@ -1,0 +1,123 @@
+best_practices:
+  - id: concise-operational-skill-surface
+    title: Keep the skill entrypoint concise and procedural
+    summary: >
+      The top-level skill doc should say when to trigger the runtime, what it owns,
+      what it does not own, and which deeper references to read first.
+    categories: [documentation, maintainability]
+
+  - id: references-layer-for-deep-guidance
+    title: Put deep guidance in references, not the skill body
+    summary: >
+      Keep SKILL.md cheap to load. Put architecture rationale, source baselines,
+      and extension guidance in a dedicated references layer.
+    categories: [documentation, knowledge]
+
+  - id: instruction-layering
+    title: Layer runtime instructions and project-specific guidance
+    summary: >
+      Keep the base REPL skill focused on terminal runtime behavior. Put repo-specific
+      policies, business workflows, and domain tool rules in higher-level project
+      instructions instead of baking them into the runtime layer.
+    categories: [architecture, documentation]
+
+  - id: explicit-runtime-contract
+    title: Make the operator-visible runtime contract explicit
+    summary: >
+      Document mode behavior, slash commands, shell execution boundaries, and transcript
+      guarantees clearly enough that downstream projects do not need to infer them from code.
+    categories: [runtime, operability]
+
+  - id: repl-first-runtime
+    title: Build the interaction loop first
+    summary: >
+      Start with a robust REPL runtime before moving to full-screen terminal UI.
+      This keeps command routing, transcript recording, and shell execution decoupled
+      from any particular layout framework.
+    categories: [architecture, runtime]
+
+  - id: explicit-mode-boundaries
+    title: Keep chat, shell, and multiline modes explicit
+    summary: >
+      Distinguish assistant conversation, shell execution, and buffered multiline input
+      with first-class runtime modes. Do not collapse them into one ambiguous stream.
+    categories: [runtime, ux]
+
+  - id: asyncio-by-default
+    title: Use asyncio from the beginning
+    summary: >
+      Live output streaming, shell execution, agent responses, and future watch tasks
+      all fit naturally into one async event loop.
+    categories: [concurrency, runtime]
+
+  - id: input-engine-separation
+    title: Keep input handling separate from execution
+    summary: >
+      The prompt loop should not be tightly coupled to the agent implementation,
+      shell transport, or renderer. Treat the prompt engine as a replaceable adapter.
+    categories: [architecture, extensibility]
+
+  - id: shell-as-tool-channel
+    title: Treat shell access as a separate tool channel
+    summary: >
+      Do not mix agent prompts and raw shell streams in the same uncontrolled channel.
+      Route shell execution through a dedicated bridge with auditing and structured results.
+    categories: [safety, architecture]
+
+  - id: approval-policy-outside-runtime
+    title: Keep approval policy outside the prompt loop
+    summary: >
+      If a project needs approvals or sandbox policy, implement that at the shell bridge or
+      orchestration layer rather than mixing it into prompt rendering and routing code.
+    categories: [safety, architecture]
+
+  - id: permissions-are-not-a-sandbox
+    title: Document permissions honestly as UX or policy
+    summary: >
+      Permission prompts and auto-accept flows are not the same thing as sandboxing.
+      If the runtime is not actually isolated, document that clearly and treat isolation as
+      a separate infrastructure concern.
+    categories: [safety, operability]
+
+  - id: keep-tui-as-one-client
+    title: Treat the terminal UI as one client of the runtime
+    summary: >
+      A strong terminal experience should not force the runtime core to depend on a single
+      presentation layer. Preserve the option for headless APIs, richer TUIs, or other clients.
+    categories: [architecture, extensibility]
+
+  - id: explicit-plan-vs-build-behavior
+    title: Keep planning and execution behaviors explicit
+    summary: >
+      If a project needs read-only planning and mutating execution, model those as explicit
+      agent or session behaviors rather than overloading one mode with hidden rules.
+    categories: [runtime, architecture]
+
+  - id: persistent-history-and-transcripts
+    title: Persist both history and transcripts
+    summary: >
+      History makes the REPL usable; transcripts make it reproducible, testable,
+      and suitable for downstream audit or regression fixtures.
+    categories: [testing, operability]
+
+  - id: structured-rendering
+    title: Render structured output instead of raw print strings
+    summary: >
+      Separate assistant responses, shell output, warnings, and status tables
+      so the rendering layer can evolve without breaking the runtime contracts.
+    categories: [ux, architecture]
+
+  - id: current-codex-sources-over-legacy-cli
+    title: Prefer current Codex docs over legacy CLI docs
+    summary: >
+      Use the current root Codex docs and current skill samples as the main source for skill
+      packaging and instruction-layering patterns. Treat the legacy codex-cli README as
+      historical terminal-agent context, not as the current implementation architecture.
+    categories: [knowledge, maintainability]
+
+  - id: use-official-sources-as-seeds
+    title: Build the runtime from official sources first
+    summary: >
+      Use Python stdlib docs and framework docs as the stable implementation layer,
+      then add Codex-inspired skill patterns and project-specific conventions on top.
+    categories: [knowledge, maintainability]

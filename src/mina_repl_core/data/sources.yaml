@@ -1,0 +1,302 @@
+sources:
+  - id: python.cmd
+    title: "cmd — Support for line-oriented command interpreters"
+    url: "https://docs.python.org/3/library/cmd.html"
+    kind: official_doc
+    role: baseline_line_interpreter
+    why_it_matters: >
+      Provides the standard-library baseline for line-oriented command interpreters and
+      clarifies what the minimum REPL abstraction looks like in Python.
+    extracted_guidance:
+      - Start with a command interpreter abstraction, even if the final product becomes richer.
+      - Treat stdlib cmd as the conceptual floor, not the final UX ceiling.
+      - Keep commands line-oriented and easy to test.
+
+  - id: python.code
+    title: "code — Interpreter base classes"
+    url: "https://docs.python.org/3/library/code.html"
+    kind: official_doc
+    role: multiline_console_reference
+    why_it_matters: >
+      Shows how Python models interactive console behavior and incomplete input handling.
+    extracted_guidance:
+      - Model interactive sessions as explicit console objects.
+      - Keep multiline submission behavior well-defined.
+      - Preserve banner and exit semantics as first-class concerns.
+
+  - id: python.readline
+    title: "readline — GNU readline interface"
+    url: "https://docs.python.org/3/library/readline.html"
+    kind: official_doc
+    role: history_and_completion_baseline
+    why_it_matters: >
+      Documents the low-level history and completion primitives which REPLs often build on.
+    extracted_guidance:
+      - History and completion should be built in from the start.
+      - Prefer a higher-level input toolkit when portability and richer UX matter.
+
+  - id: python.asyncio
+    title: "asyncio — Asynchronous I/O"
+    url: "https://docs.python.org/3/library/asyncio.html"
+    kind: official_doc
+    role: concurrency_foundation
+    why_it_matters: >
+      The REPL runtime needs one event loop for prompts, agent calls, shell execution,
+      and future live tasks.
+    extracted_guidance:
+      - Use async/await as the primary concurrency model.
+      - Build the runtime around one event loop rather than mixed sync/async code.
+
+  - id: prompt_toolkit.getting_started
+    title: "prompt_toolkit — Getting started"
+    url: "https://python-prompt-toolkit.readthedocs.io/en/stable/pages/getting_started.html"
+    kind: official_doc
+    role: primary_input_engine
+    why_it_matters: >
+      Explains prompt_toolkit's position as both a readline replacement and a foundation
+      for more advanced terminal applications.
+    extracted_guidance:
+      - Use prompt_toolkit as the primary prompt engine.
+      - Support both prompt-style REPLs and future full-screen layouts.
+      - Keep input components reusable.
+
+  - id: prompt_toolkit.sqlite_repl
+    title: "prompt_toolkit — Tutorial: Build an SQLite REPL"
+    url: "https://python-prompt-toolkit.readthedocs.io/en/stable/pages/tutorials/repl.html"
+    kind: official_doc
+    role: practical_repl_reference
+    why_it_matters: >
+      Provides a direct REPL implementation reference using PromptSession, completers,
+      lexers, and robust keyboard handling.
+    extracted_guidance:
+      - Use PromptSession as the core input abstraction.
+      - Handle KeyboardInterrupt and EOFError explicitly.
+      - Add completion and highlighting incrementally.
+
+  - id: prompt_toolkit.asyncio
+    title: "prompt_toolkit — Running on top of the asyncio event loop"
+    url: "https://python-prompt-toolkit.readthedocs.io/en/stable/pages/advanced_topics/asyncio.html"
+    kind: official_doc
+    role: async_integration
+    why_it_matters: >
+      Confirms that prompt_toolkit 3 uses asyncio natively, which fits a shell-capable AI agent.
+    extracted_guidance:
+      - Use run_async or prompt_async when embedding in an async application.
+      - Avoid bolting async on after the fact.
+
+  - id: prompt_toolkit.input_hooks
+    title: "prompt_toolkit — Input hooks"
+    url: "https://python-prompt-toolkit.readthedocs.io/en/stable/pages/advanced_topics/input_hooks.html"
+    kind: official_doc
+    role: advanced_event_loop_integration
+    why_it_matters: >
+      Useful when the REPL later needs to coexist with other event loops or richer UI runtimes.
+    extracted_guidance:
+      - Keep the input engine decoupled enough to integrate external loops later.
+      - Treat advanced loop composition as an extension, not an MVP requirement.
+
+  - id: cmd2.core
+    title: "cmd2.Cmd"
+    url: "https://cmd2.readthedocs.io/en/2.3.1/api/cmd.html"
+    kind: official_doc
+    role: command_shell_reference
+    why_it_matters: >
+      Demonstrates mature command-shell features such as persistent history, startup scripts,
+      transcript files, multiline commands, and redirection.
+    extracted_guidance:
+      - Persistent history is not optional for a serious REPL.
+      - Transcript files are valuable enough to be a first-class runtime concern.
+      - Multiline commands should be explicit, not accidental.
+
+  - id: cmd2.completion
+    title: "cmd2 — Completion"
+    url: "https://cmd2.readthedocs.io/en/stable/features/completion/"
+    kind: official_doc
+    role: completion_patterns
+    why_it_matters: >
+      Shows practical completion helpers for shell commands and file-system paths.
+    extracted_guidance:
+      - Give custom commands path completion where it makes sense.
+      - Reuse common completion patterns instead of inventing each completer by hand.
+
+  - id: cmd2.transcripts
+    title: "cmd2 — Transcript based testing"
+    url: "https://cmd2.readthedocs.io/en/0.8.4/transcript.html"
+    kind: official_doc
+    role: transcript_testing_reference
+    why_it_matters: >
+      Demonstrates that CLI transcripts can double as executable tests.
+    extracted_guidance:
+      - Save transcripts in a format that can later be replayed.
+      - Treat transcripts as both audit artifacts and regression fixtures.
+
+  - id: cmd2.hooks
+    title: "cmd2 — Application Lifecycle and Hooks"
+    url: "https://cmd2.readthedocs.io/en/0.8.6/hooks.html"
+    kind: official_doc
+    role: lifecycle_hooks_reference
+    why_it_matters: >
+      Reinforces the importance of command-processing hooks and lifecycle boundaries.
+    extracted_guidance:
+      - Keep pre-command and post-command hooks explicit.
+      - Separate parsing, execution, and rendering stages.
+
+  - id: rich.introduction
+    title: "Rich — Introduction"
+    url: "https://rich.readthedocs.io/en/latest/introduction.html"
+    kind: official_doc
+    role: renderer_reference
+    why_it_matters: >
+      Rich provides tables, markdown, syntax highlighting, and terminal-friendly rendering.
+    extracted_guidance:
+      - Render structured content, not only plain text.
+      - Use panels, tables, markdown, and syntax views as native REPL building blocks.
+
+  - id: rich.live
+    title: "Rich — Live Display"
+    url: "https://rich.readthedocs.io/en/latest/live.html"
+    kind: official_doc
+    role: streaming_and_status_rendering
+    why_it_matters: >
+      Live rendering is useful for status widgets, watch output, and in-place refreshes.
+    extracted_guidance:
+      - Use Live for status areas and streaming output regions.
+      - Keep refresh cadence configurable and separate from business logic.
+
+  - id: textual.home
+    title: "Textual"
+    url: "https://textual.textualize.io/"
+    kind: official_doc
+    role: optional_full_screen_runtime
+    why_it_matters: >
+      Textual is the natural upgrade path if the project later needs split panes,
+      dashboards, or a full-screen terminal application.
+    extracted_guidance:
+      - Keep the REPL runtime independent so it can be wrapped by Textual later.
+      - Treat Textual as an optional UI shell, not a dependency of the core interaction loop.
+
+  - id: asyncssh.home
+    title: "AsyncSSH"
+    url: "https://asyncssh.readthedocs.io/en/latest/"
+    kind: official_doc
+    role: optional_remote_shell
+    why_it_matters: >
+      AsyncSSH gives the REPL an async-friendly way to access remote shells without
+      breaking the event loop model.
+    extracted_guidance:
+      - Use AsyncSSH as the remote shell bridge for asyncio-native runtimes.
+      - Keep SSH support optional so the base skill stays lightweight.
+
+  - id: ptpython.home
+    title: "ptpython"
+    url: "https://github.com/prompt-toolkit/ptpython"
+    kind: public_project
+    role: reference_feature_set
+    why_it_matters: >
+      Ptpython is a strong reference for advanced REPL features such as multiline editing,
+      autocompletion, and top-level await.
+    extracted_guidance:
+      - Use ptpython as a feature benchmark for what a polished REPL can feel like.
+      - Borrow proven UX patterns without coupling your agent to a Python-only shell.
+
+  - id: openai.codex.readme
+    title: "openai/codex — README.md"
+    url: "https://github.com/openai/codex/blob/main/README.md"
+    kind: public_project
+    role: current_product_reference
+    why_it_matters: >
+      The root README is the current top-level framing for Codex. It is more current than the
+      legacy codex-cli README for product posture and repository orientation.
+    extracted_guidance:
+      - Prefer current root docs when inferring current Codex behavior or packaging norms.
+      - Keep quick-start and operator-facing framing simple and direct.
+
+  - id: openai.codex.agents
+    title: "openai/codex — AGENTS.md"
+    url: "https://github.com/openai/codex/blob/main/AGENTS.md"
+    kind: public_project
+    role: instruction_layering_reference
+    why_it_matters: >
+      Shows how Codex separates persistent repo instructions from task-local work and
+      keeps project rules explicit instead of hiding them inside every task prompt.
+    extracted_guidance:
+      - Keep global and project-specific instructions separate from the base runtime skill.
+      - Update docs when APIs or operator-facing behavior change.
+      - Treat repo guidance as a layer above the runtime substrate.
+
+  - id: openai.codex_cli.readme_legacy
+    title: "openai/codex — codex-cli/README.md"
+    url: "https://github.com/openai/codex/blob/main/codex-cli/README.md"
+    kind: public_project
+    role: legacy_terminal_reference
+    why_it_matters: >
+      The legacy codex-cli README still captures useful terminal-agent concepts such as
+      permission modes, history, project docs, and REPL framing, but it is not the current
+      implementation architecture source of truth.
+    extracted_guidance:
+      - Use the legacy CLI docs for terminal-agent vocabulary, not for current architecture.
+      - Keep approvals, project-doc layering, and history as explicit operator concerns.
+
+  - id: openai.codex.skill_example
+    title: "openai/codex — .codex/skills/test-tui/SKILL.md"
+    url: "https://github.com/openai/codex/blob/main/.codex/skills/test-tui/SKILL.md"
+    kind: public_project
+    role: skill_shape_reference
+    why_it_matters: >
+      Demonstrates the concise frontmatter-plus-procedure pattern used by small Codex skills.
+    extracted_guidance:
+      - Put trigger semantics in the description so the skill activates for the right tasks.
+      - Keep the body short and procedural.
+      - Point outward to deeper references when nuance is needed.
+
+  - id: openai.codex.skill_creator
+    title: "openai/codex — codex-rs/skills sample: skill-creator"
+    url: "https://github.com/openai/codex/blob/main/codex-rs/skills/src/assets/samples/skill-creator/SKILL.md"
+    kind: public_project
+    role: skill_packaging_reference
+    why_it_matters: >
+      The current sample skill bundle shows the preferred Codex shape for references,
+      agents metadata, and progressive disclosure.
+    extracted_guidance:
+      - Use references for deep guidance instead of overloading SKILL.md.
+      - Keep agents metadata aligned with the skill body.
+      - Treat scripts and assets as optional support layers, not defaults.
+
+  - id: anomaly.opencode.readme
+    title: "anomalyco/opencode — README.md"
+    url: "https://github.com/anomalyco/opencode/blob/main/README.md"
+    kind: public_project
+    role: tui_product_reference
+    why_it_matters: >
+      OpenCode is a terminal-first coding agent with explicit built-in agent modes and a
+      client/server architecture where the TUI is only one possible client.
+    extracted_guidance:
+      - A strong terminal agent can still be designed as a multi-client system.
+      - Keep planning and build/execution behaviors explicit.
+      - TUI-first does not require TUI-only architecture.
+
+  - id: anomaly.opencode.security
+    title: "anomalyco/opencode — SECURITY.md"
+    url: "https://github.com/anomalyco/opencode/blob/main/SECURITY.md"
+    kind: public_project
+    role: permission_boundary_reference
+    why_it_matters: >
+      OpenCode is unusually clear that permission prompts are a UX feature and not a sandbox.
+      This is a useful counterexample for documenting REPL safety boundaries honestly.
+    extracted_guidance:
+      - Do not imply that approvals equal isolation.
+      - Document whether a runtime is sandboxed, policy-gated, or neither.
+      - Treat server exposure and isolation as separate concerns from permission prompts.
+
+  - id: anomaly.opencode.contributing
+    title: "anomalyco/opencode — CONTRIBUTING.md"
+    url: "https://github.com/anomalyco/opencode/blob/main/CONTRIBUTING.md"
+    kind: public_project
+    role: architecture_and_dev_reference
+    why_it_matters: >
+      The contributing guide makes the split between core server, TUI, app, desktop, and
+      development workflows explicit, which is valuable for designing reusable REPL runtimes.
+    extracted_guidance:
+      - Keep core runtime logic separate from the TUI client.
+      - Make development and debugging entrypoints explicit.
+      - Headless server mode and terminal mode can share the same underlying session system.

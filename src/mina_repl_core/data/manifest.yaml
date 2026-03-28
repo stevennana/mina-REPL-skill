@@ -1,0 +1,51 @@
+skill:
+  id: mina-repl-core
+  version: 0.1.0
+  kind: base_skill
+  title: Mina REPL Core
+  description: >
+    Foundational runtime skill for building multi-turn AI REPL applications in Python.
+    The skill is REPL-first and framework-light, so teams can start with a command-line
+    runtime, keep the runtime contract explicit, and later add richer terminal UI layers
+    without rewriting the interaction core.
+  status: ready_to_customize
+  capabilities:
+    - prompt_lifecycle
+    - slash_command_routing
+    - mode_routing
+    - multiline_input
+    - persistent_history
+    - transcript_recording
+    - structured_rendering
+    - local_shell_bridge
+    - optional_ssh_shell_bridge
+    - command_audit_contract
+    - source_catalog
+    - best_practices_catalog
+    - references_layer
+  modes:
+    - chat
+    - shell
+    - multiline
+  recommended_runtime:
+    input_engine: prompt_toolkit
+    renderer: rich
+    event_loop: asyncio
+    optional_remote_shell: asyncssh
+    optional_full_screen_ui: textual
+    command_shell_reference: cmd2
+    reference_repl: ptpython
+  packaging:
+    python_package: mina_repl_core
+    entrypoint: python -m mina_repl_core
+  integration_points:
+    - assistant_callback
+    - shell_bridge
+    - transcript_export
+    - source_catalog_loader
+    - slash_command_extensions
+  included_files:
+    manifest: manifest.yaml
+    contracts: contracts.yaml
+    best_practices: best_practices.yaml
+    sources: sources.yaml

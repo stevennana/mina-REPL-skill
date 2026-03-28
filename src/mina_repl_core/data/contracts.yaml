@@ -1,0 +1,63 @@
+contracts:
+  transcript_entry:
+    fields:
+      - name: timestamp
+        type: string
+        format: iso8601
+      - name: role
+        type: string
+        allowed: [system, user, assistant, shell]
+      - name: mode
+        type: string
+        allowed: [chat, shell, multiline]
+      - name: content
+        type: string
+      - name: metadata
+        type: object
+        optional: true
+
+  shell_result:
+    fields:
+      - name: command
+        type: string
+      - name: exit_code
+        type: integer
+      - name: stdout
+        type: string
+      - name: stderr
+        type: string
+      - name: started_at
+        type: string
+        format: iso8601
+      - name: finished_at
+        type: string
+        format: iso8601
+      - name: duration_seconds
+        type: number
+
+  runtime_state:
+    fields:
+      - name: mode
+        type: string
+        allowed: [chat, shell, multiline]
+      - name: running
+        type: boolean
+      - name: history_path
+        type: string
+        optional: true
+      - name: transcript_path
+        type: string
+        optional: true
+
+  slash_commands:
+    built_in:
+      - /help
+      - /mode <chat|shell|multiline>
+      - /status
+      - /history [n]
+      - /sources
+      - /skill
+      - /run <shell command>
+      - /transcript [path]
+      - /clear
+      - /quit
