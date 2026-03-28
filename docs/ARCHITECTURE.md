@@ -42,4 +42,5 @@ For detailed runtime architecture, read:
 - `references/repl-plan-build-modes.md`
 - `references/repl-architecture.md`
 - `references/repl-extension-points.md`
+- `references/repl-terminal-ui-best-practices.md`
 - `references/repl-design-opencode.md`

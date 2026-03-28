@@ -24,6 +24,7 @@ This file is the short human-readable summary.
 - root `openai/codex` `AGENTS.md`
 - `.codex/skills/*/SKILL.md`
 - `codex-rs/skills` sample skill assets
+- `codex-rs/tui_app_server/styles.md`
 
 ## OpenCode design-pattern baseline
 

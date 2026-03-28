@@ -32,6 +32,7 @@ class SkillLayoutTests(unittest.TestCase):
             "repl-plan-build-modes.md",
             "repl-architecture.md",
             "repl-extension-points.md",
+            "repl-terminal-ui-best-practices.md",
             "repl-source-baseline.md",
             "repl-design-opencode.md",
         ):

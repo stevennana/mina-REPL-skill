@@ -7,6 +7,7 @@ For the deeper contracts, read:
 - `references/repl-approval-and-autonomy.md`
 - `references/repl-session-lifecycle.md`
 - `references/repl-plan-build-modes.md`
+- `references/repl-terminal-ui-best-practices.md`
 
 ## Install
 

@@ -21,6 +21,7 @@ Before redesigning or extending a REPL, read these references:
 - `references/repl-plan-build-modes.md`
 - `references/repl-architecture.md`
 - `references/repl-extension-points.md`
+- `references/repl-terminal-ui-best-practices.md`
 - `references/repl-source-baseline.md`
 - `references/repl-design-opencode.md`
 

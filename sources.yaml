@@ -276,6 +276,19 @@ sources:
       - Keep agents metadata aligned with the skill body.
       - Treat scripts and assets as optional support layers, not defaults.
 
+  - id: openai.codex.tui_styles
+    title: "openai/codex — codex-rs/tui_app_server/styles.md"
+    url: "https://github.com/openai/codex/blob/main/codex-rs/tui_app_server/styles.md"
+    kind: public_project
+    role: terminal_ui_style_reference
+    why_it_matters: >
+      Codex documents a restrained terminal style guide that optimizes for legibility across
+      varied terminal themes instead of relying on custom colors.
+    extracted_guidance:
+      - Use bold headers, default primary text, and dim secondary text.
+      - Use a small semantic color palette for status and feedback.
+      - Avoid custom colors that may fail across terminal themes.
+
   - id: anomaly.opencode.readme
     title: "anomalyco/opencode — README.md"
     url: "https://github.com/anomalyco/opencode/blob/main/README.md"

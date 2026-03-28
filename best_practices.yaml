@@ -122,6 +122,34 @@ best_practices:
       availability, and VCS status instead of leaving that context implicit.
     categories: [ux, operability]
 
+  - id: operator-state-must-stay-visible
+    title: Keep important shell state visible
+    summary: >
+      The shell UI should make runtime mode, operational mode, approval mode, session identity,
+      and review availability obvious rather than relying on hidden state.
+    categories: [ux, operability]
+
+  - id: progressive-disclosure-in-terminal-ui
+    title: Use progressive disclosure in the terminal interface
+    summary: >
+      Keep the main interaction area focused, then use dialogs, side panels, palettes,
+      and status views for permissions, sessions, review state, and configuration.
+    categories: [ux, architecture]
+
+  - id: restrained-terminal-styling
+    title: Prefer restrained terminal styling
+    summary: >
+      Use a conservative, theme-safe terminal palette with bold headers, dim secondary text,
+      and a small set of semantic colors instead of custom colors that may fail across themes.
+    categories: [ux, maintainability]
+
+  - id: keyboard-first-shell-ux
+    title: Keep the shell keyboard-first
+    summary: >
+      Core workflows should remain fully operable through slash commands, command palettes,
+      dialogs, and explicit keybinds without relying on pointer interaction.
+    categories: [ux, operability]
+
   - id: persistent-history-and-transcripts
     title: Persist both history and transcripts
     summary: >
