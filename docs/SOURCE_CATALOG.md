@@ -30,6 +30,8 @@ This file is the short human-readable summary.
 - `anomalyco/opencode` `README.md`
 - `anomalyco/opencode` `SECURITY.md`
 - `anomalyco/opencode` `CONTRIBUTING.md`
+- `anomalyco/opencode` plan/build prompt contracts
+- `anomalyco/opencode` session system
 
 These are useful for extracting TUI-first, multi-client, session-centric terminal-agent patterns.
 

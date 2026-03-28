@@ -5,6 +5,9 @@ This repo now keeps the canonical skill-consumed guidance in `references/`.
 Read these first for the actual REPL best-practice material:
 
 - `references/repl-runtime-contract.md`
+- `references/repl-approval-and-autonomy.md`
+- `references/repl-session-lifecycle.md`
+- `references/repl-plan-build-modes.md`
 - `references/repl-source-baseline.md`
 
 Use this `docs/` copy as a short contributor-facing summary only.

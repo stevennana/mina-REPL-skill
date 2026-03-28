@@ -237,6 +237,20 @@ sources:
       - Use the legacy CLI docs for terminal-agent vocabulary, not for current architecture.
       - Keep approvals, project-doc layering, and history as explicit operator concerns.
 
+  - id: openai.codex.plan_and_project_docs
+    title: "openai/codex — legacy codex-cli approvals and project-doc layering"
+    url: "https://github.com/openai/codex/blob/main/codex-cli/README.md"
+    kind: public_project
+    role: approval_and_docs_reference
+    why_it_matters: >
+      The legacy codex-cli README still provides a compact and useful contract for approval
+      modes, history behavior, and AGENTS.md layering even though it is not the current
+      implementation source of truth.
+    extracted_guidance:
+      - Approval modes should be explicit and operator-visible.
+      - History is a configurable product behavior, not just an implementation detail.
+      - Global, repo, and subdirectory guidance should layer top-down.
+
   - id: openai.codex.skill_example
     title: "openai/codex — .codex/skills/test-tui/SKILL.md"
     url: "https://github.com/openai/codex/blob/main/.codex/skills/test-tui/SKILL.md"
@@ -300,3 +314,40 @@ sources:
       - Keep core runtime logic separate from the TUI client.
       - Make development and debugging entrypoints explicit.
       - Headless server mode and terminal mode can share the same underlying session system.
+
+  - id: anomaly.opencode.plan_prompt
+    title: "anomalyco/opencode — plan mode prompt"
+    url: "https://github.com/anomalyco/opencode/blob/main/packages/opencode/src/session/prompt/plan.txt"
+    kind: public_project
+    role: operational_mode_reference
+    why_it_matters: >
+      OpenCode makes read-only planning behavior explicit at the prompt-contract level rather
+      than burying it inside an implicit convention.
+    extracted_guidance:
+      - Planning behavior should be explicitly read-only.
+      - The shell should make it clear when execution is not allowed yet.
+      - Clarifying questions are part of planning, not a failure mode.
+
+  - id: anomaly.opencode.build_switch
+    title: "anomalyco/opencode — build mode switch prompt"
+    url: "https://github.com/anomalyco/opencode/blob/main/packages/opencode/src/session/prompt/build-switch.txt"
+    kind: public_project
+    role: operational_transition_reference
+    why_it_matters: >
+      OpenCode explicitly signals the transition from planning to build mode instead of relying
+      on a hidden internal state change.
+    extracted_guidance:
+      - Transitions from read-only planning to mutating execution should be explicit.
+      - The operator should understand when the shell is now allowed to edit or execute.
+
+  - id: anomaly.opencode.session_system
+    title: "anomalyco/opencode — session system"
+    url: "https://github.com/anomalyco/opencode/blob/main/packages/opencode/src/session/index.ts"
+    kind: public_project
+    role: session_lifecycle_reference
+    why_it_matters: >
+      OpenCode models session lifecycle as a first-class service with permissions, forking,
+      summaries, review state, and message history instead of treating sessions as a thin chat log.
+    extracted_guidance:
+      - Session lifecycle should be explicit once the shell grows beyond a minimal REPL.
+      - Fork, summary, review, and permission state belong in structured session metadata.

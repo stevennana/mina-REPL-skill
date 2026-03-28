@@ -49,6 +49,51 @@ contracts:
         type: string
         optional: true
 
+  operational_state:
+    fields:
+      - name: agent_mode
+        type: string
+        allowed: [plan, build]
+      - name: approval_mode
+        type: string
+        allowed: [suggest, auto_edit, full_auto]
+      - name: read_only
+        type: boolean
+
+  session_metadata:
+    fields:
+      - name: session_id
+        type: string
+      - name: title
+        type: string
+        optional: true
+      - name: parent_session_id
+        type: string
+        optional: true
+      - name: summary
+        type: string
+        optional: true
+      - name: archived_at
+        type: string
+        format: iso8601
+        optional: true
+      - name: compacted_at
+        type: string
+        format: iso8601
+        optional: true
+
+  review_state:
+    fields:
+      - name: changed_files
+        type: integer
+      - name: vcs_enabled
+        type: boolean
+      - name: review_available
+        type: boolean
+      - name: snapshot_enabled
+        type: boolean
+        optional: true
+
   slash_commands:
     built_in:
       - /help

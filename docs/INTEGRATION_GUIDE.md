@@ -1,7 +1,12 @@
 # Integration Guide
 
 This file is the repo-facing integration summary.
-For the deeper runtime contract, read `references/repl-runtime-contract.md`.
+For the deeper contracts, read:
+
+- `references/repl-runtime-contract.md`
+- `references/repl-approval-and-autonomy.md`
+- `references/repl-session-lifecycle.md`
+- `references/repl-plan-build-modes.md`
 
 ## Install
 

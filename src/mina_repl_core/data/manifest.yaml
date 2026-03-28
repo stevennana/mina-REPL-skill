@@ -6,8 +6,8 @@ skill:
   description: >
     Foundational runtime skill for building multi-turn AI REPL applications in Python.
     The skill is REPL-first and framework-light, so teams can start with a command-line
-    runtime, keep the runtime contract explicit, and later add richer terminal UI layers
-    without rewriting the interaction core.
+    runtime, keep the runtime and agent-shell contracts explicit, and later add richer
+    terminal UI layers without rewriting the interaction core.
   status: ready_to_customize
   capabilities:
     - prompt_lifecycle
@@ -20,6 +20,10 @@ skill:
     - local_shell_bridge
     - optional_ssh_shell_bridge
     - command_audit_contract
+    - approval_policy_contract
+    - session_lifecycle
+    - plan_build_behavior
+    - review_surface
     - source_catalog
     - best_practices_catalog
     - references_layer
@@ -42,6 +46,9 @@ skill:
     - assistant_callback
     - shell_bridge
     - transcript_export
+    - approval_policy_layer
+    - session_metadata_layer
+    - review_surface_layer
     - source_catalog_loader
     - slash_command_extensions
   included_files:

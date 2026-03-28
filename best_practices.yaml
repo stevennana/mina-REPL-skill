@@ -28,6 +28,14 @@ best_practices:
       guarantees clearly enough that downstream projects do not need to infer them from code.
     categories: [runtime, operability]
 
+  - id: separate-runtime-agent-and-approval-modes
+    title: Keep routing modes, agent modes, and approval modes separate
+    summary: >
+      Distinguish runtime input modes like chat or shell from operational modes like plan or
+      build, and from approval modes like suggest or full-auto. They answer different questions
+      and should not be overloaded into one hidden state machine.
+    categories: [runtime, architecture]
+
   - id: repl-first-runtime
     title: Build the interaction loop first
     summary: >
@@ -79,6 +87,13 @@ best_practices:
       a separate infrastructure concern.
     categories: [safety, operability]
 
+  - id: vcs-aware-high-autonomy-safety
+    title: Make high-autonomy behavior VCS-aware
+    summary: >
+      When a shell offers higher-autonomy modes, make the user aware when the current
+      workspace is not under version control or otherwise lacks an obvious recovery path.
+    categories: [safety, operability]
+
   - id: keep-tui-as-one-client
     title: Treat the terminal UI as one client of the runtime
     summary: >
@@ -92,6 +107,20 @@ best_practices:
       If a project needs read-only planning and mutating execution, model those as explicit
       agent or session behaviors rather than overloading one mode with hidden rules.
     categories: [runtime, architecture]
+
+  - id: session-lifecycle-is-first-class
+    title: Treat session lifecycle as first-class state
+    summary: >
+      Once a shell grows beyond a minimal loop, model session creation, resume, fork,
+      compaction, and archival explicitly instead of encoding them only in ad hoc UI state.
+    categories: [runtime, operability]
+
+  - id: review-surface-after-mutations
+    title: Keep a review surface after mutating actions
+    summary: >
+      After file-changing tool actions, expose review state such as changed files, diff
+      availability, and VCS status instead of leaving that context implicit.
+    categories: [ux, operability]
 
   - id: persistent-history-and-transcripts
     title: Persist both history and transcripts
