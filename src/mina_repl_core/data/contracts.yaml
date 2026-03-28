@@ -60,6 +60,44 @@ contracts:
       - name: read_only
         type: boolean
 
+  memory_state:
+    fields:
+      - name: persistent_history_enabled
+        type: boolean
+      - name: local_draft_history_enabled
+        type: boolean
+      - name: compaction_enabled
+        type: boolean
+      - name: project_doc_layers
+        type: array
+
+  model_selection:
+    fields:
+      - name: provider_id
+        type: string
+      - name: model_id
+        type: string
+      - name: reasoning_effort
+        type: string
+        optional: true
+      - name: variant
+        type: string
+        optional: true
+
+  turn_state:
+    fields:
+      - name: turn_id
+        type: string
+      - name: phase
+        type: string
+        allowed:
+          [awaiting_model, awaiting_approval, tool_pending, tool_running, tool_completed, interrupted, completed]
+      - name: active_tool
+        type: string
+        optional: true
+      - name: interruptible
+        type: boolean
+
   session_metadata:
     fields:
       - name: session_id
@@ -81,6 +119,19 @@ contracts:
         type: string
         format: iso8601
         optional: true
+
+  plan_state:
+    fields:
+      - name: plan_id
+        type: string
+        optional: true
+      - name: current_step
+        type: string
+        optional: true
+      - name: compacted_summary
+        type: boolean
+      - name: review_required
+        type: boolean
 
   review_state:
     fields:

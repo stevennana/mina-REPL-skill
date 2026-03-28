@@ -36,6 +36,27 @@ best_practices:
       and should not be overloaded into one hidden state machine.
     categories: [runtime, architecture]
 
+  - id: split-short-and-long-term-memory
+    title: Separate short-term and long-term memory
+    summary: >
+      Distinguish local draft/session recall from persisted history, compacted summaries,
+      and project-doc guidance. Do not treat all memory as one undifferentiated store.
+    categories: [memory, architecture]
+
+  - id: use-project-docs-as-structured-memory
+    title: Use project docs as structured long-term memory
+    summary: >
+      Keep repo-local guidance layered and explicit. Project-doc memory should not be mixed
+      into raw chat history as if it were the same thing.
+    categories: [memory, documentation]
+
+  - id: make-model-selection-explicit
+    title: Keep model and provider configuration explicit
+    summary: >
+      Provider, model, reasoning level, and related config should be operator-visible and
+      documented rather than buried in code or implicit defaults.
+    categories: [configuration, operability]
+
   - id: repl-first-runtime
     title: Build the interaction loop first
     summary: >
@@ -71,6 +92,13 @@ best_practices:
       Do not mix agent prompts and raw shell streams in the same uncontrolled channel.
       Route shell execution through a dedicated bridge with auditing and structured results.
     categories: [safety, architecture]
+
+  - id: expose-tool-loop-state
+    title: Expose tool-loop and turn state explicitly
+    summary: >
+      Model tool-driven turns as a visible loop with model, approval, tool, and completion
+      phases instead of hiding them inside a black-box agent run.
+    categories: [runtime, operability]
 
   - id: approval-policy-outside-runtime
     title: Keep approval policy outside the prompt loop
@@ -114,6 +142,13 @@ best_practices:
       Once a shell grows beyond a minimal loop, model session creation, resume, fork,
       compaction, and archival explicitly instead of encoding them only in ad hoc UI state.
     categories: [runtime, operability]
+
+  - id: plans-should-be-explicit-artifacts
+    title: Keep plans explicit and reviewable
+    summary: >
+      If the shell supports planning, make plans visible, resumable, and clearly distinct
+      from raw chat text. Do not let planning dissolve into untracked internal reasoning.
+    categories: [planning, operability]
 
   - id: review-surface-after-mutations
     title: Keep a review surface after mutating actions

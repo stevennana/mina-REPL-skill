@@ -27,6 +27,9 @@ class SkillLayoutTests(unittest.TestCase):
         self.assertTrue(references.exists())
         for name in (
             "repl-runtime-contract.md",
+            "repl-memory-and-model-config.md",
+            "repl-tool-loop-and-turn-orchestration.md",
+            "repl-plan-execution.md",
             "repl-approval-and-autonomy.md",
             "repl-session-lifecycle.md",
             "repl-plan-build-modes.md",

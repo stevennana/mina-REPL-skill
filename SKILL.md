@@ -16,6 +16,9 @@ Those belong in higher-level project skills and repo-specific instructions.
 Before redesigning or extending a REPL, read these references:
 
 - `references/repl-runtime-contract.md`
+- `references/repl-memory-and-model-config.md`
+- `references/repl-tool-loop-and-turn-orchestration.md`
+- `references/repl-plan-execution.md`
 - `references/repl-approval-and-autonomy.md`
 - `references/repl-session-lifecycle.md`
 - `references/repl-plan-build-modes.md`
@@ -31,6 +34,8 @@ Before redesigning or extending a REPL, read these references:
 - chat, shell, and multiline modes need to stay explicit
 - planning and execution behavior need to stay explicit
 - approval and autonomy policy need a clear operator contract
+- memory and model configuration need a clear operator contract
+- tool-driven multiturn behavior needs to stay explicit and inspectable
 - shell execution must remain separate from assistant text
 - transcript and history persistence should be first-class
 - session lifecycle, review, or compaction behavior need to be first-class
@@ -64,6 +69,8 @@ Higher-level project code should own:
    - mode semantics
    - plan vs build behavior
    - approval/autonomy semantics
+   - memory and model-selection semantics
+   - tool loop and turn state semantics
    - slash commands
    - shell boundaries
    - transcript, history, and session lifecycle behavior
@@ -77,6 +84,9 @@ Higher-level project code should own:
 - Preserve explicit `chat`, `shell`, and `multiline` modes.
 - Preserve explicit `plan` vs `build` behavior when the shell supports both.
 - Preserve explicit approval modes when the shell supports autonomy levels.
+- Keep short-term and long-term memory policies explicit.
+- Keep provider/model configuration explicit and operator-visible.
+- Expose tool-loop and turn state instead of hiding it behind a black-box agent run.
 - Persist both history and transcripts so the runtime is usable and reproducible.
 - Treat session lifecycle and post-change review surfaces as first-class if the shell grows beyond a minimal loop.
 - Keep input handling, execution, and rendering loosely coupled.

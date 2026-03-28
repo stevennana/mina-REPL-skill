@@ -25,12 +25,18 @@ This file is the short human-readable summary.
 - `.codex/skills/*/SKILL.md`
 - `codex-rs/skills` sample skill assets
 - `codex-rs/tui_app_server/styles.md`
+- `docs/tui-chat-composer.md`
+- `codex-rs/docs/codex_mcp_interface.md`
+- `docs/config.md`
 
 ## OpenCode design-pattern baseline
 
 - `anomalyco/opencode` `README.md`
 - `anomalyco/opencode` `SECURITY.md`
 - `anomalyco/opencode` `CONTRIBUTING.md`
+- `anomalyco/opencode` `specs/project.md`
+- `anomalyco/opencode` session prompt contracts
+- `anomalyco/opencode` SDK OpenAPI session and permission schema
 - `anomalyco/opencode` plan/build prompt contracts
 - `anomalyco/opencode` session system
 

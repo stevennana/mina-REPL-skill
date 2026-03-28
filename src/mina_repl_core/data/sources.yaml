@@ -251,6 +251,45 @@ sources:
       - History is a configurable product behavior, not just an implementation detail.
       - Global, repo, and subdirectory guidance should layer top-down.
 
+  - id: openai.codex.chat_composer_history
+    title: "openai/codex — docs/tui-chat-composer.md"
+    url: "https://github.com/openai/codex/blob/main/docs/tui-chat-composer.md"
+    kind: public_project
+    role: memory_and_history_reference
+    why_it_matters: >
+      Codex documents the distinction between persistent history and richer local draft state,
+      which is directly relevant to short-term vs long-term memory design in a REPL shell.
+    extracted_guidance:
+      - Persistent history and local draft state should be modeled separately.
+      - Rich in-session recall does not require storing every detail in durable history.
+      - Compaction and history behavior should be intentional and reviewable.
+
+  - id: openai.codex.mcp_threads_turns
+    title: "openai/codex — codex-rs/docs/codex_mcp_interface.md"
+    url: "https://github.com/openai/codex/blob/main/codex-rs/docs/codex_mcp_interface.md"
+    kind: public_project
+    role: turn_orchestration_reference
+    why_it_matters: >
+      Codex explicitly models threads, turns, approvals, and live events, which is useful for
+      documenting tool-driven multiturn loops instead of treating them as a hidden implementation detail.
+    extracted_guidance:
+      - Think in durable threads and explicit turns.
+      - Tool approvals belong inside the turn lifecycle.
+      - Turn state and live events should be inspectable by clients.
+
+  - id: openai.codex.config_state
+    title: "openai/codex — docs/config.md"
+    url: "https://github.com/openai/codex/blob/main/docs/config.md"
+    kind: public_project
+    role: config_and_state_reference
+    why_it_matters: >
+      Codex documents explicit configuration for state DB location, plan-mode defaults, and
+      approval overrides, which is useful for model/config and memory policy guidance.
+    extracted_guidance:
+      - Keep memory and state-storage configuration explicit.
+      - Plan-mode defaults should be configurable rather than hidden.
+      - Approval and tool policy overrides belong in explicit config.
+
   - id: openai.codex.skill_example
     title: "openai/codex — .codex/skills/test-tui/SKILL.md"
     url: "https://github.com/openai/codex/blob/main/.codex/skills/test-tui/SKILL.md"
@@ -364,3 +403,29 @@ sources:
     extracted_guidance:
       - Session lifecycle should be explicit once the shell grows beyond a minimal REPL.
       - Fork, summary, review, and permission state belong in structured session metadata.
+
+  - id: anomaly.opencode.project_spec
+    title: "anomalyco/opencode — specs/project.md"
+    url: "https://github.com/anomalyco/opencode/blob/main/specs/project.md"
+    kind: public_project
+    role: session_and_compaction_reference
+    why_it_matters: >
+      The project spec makes session operations such as compact, revert, share, and permission
+      response explicit at the API level.
+    extracted_guidance:
+      - Session compaction should be an explicit operation.
+      - Fork/share/revert permissions fit naturally into session lifecycle design.
+      - Project/worktree-aware session APIs are useful once the shell spans multiple repos.
+
+  - id: anomaly.opencode.sdk_turns_and_permissions
+    title: "anomalyco/opencode — SDK OpenAPI session and permission shapes"
+    url: "https://github.com/anomalyco/opencode/blob/main/packages/sdk/openapi.json"
+    kind: public_project
+    role: tool_loop_and_model_reference
+    why_it_matters: >
+      OpenCode exposes provider/model selection, async session prompting, tool metadata,
+      and permission response APIs in its SDK schema.
+    extracted_guidance:
+      - Provider and model selection should be explicit in session APIs.
+      - Tool loops should expose pending/running/completed/error state.
+      - Permission requests and replies should be modeled explicitly.

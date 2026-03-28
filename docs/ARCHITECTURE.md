@@ -37,6 +37,9 @@ The repo-root YAML files are canonical.
 For detailed runtime architecture, read:
 
 - `references/repl-runtime-contract.md`
+- `references/repl-memory-and-model-config.md`
+- `references/repl-tool-loop-and-turn-orchestration.md`
+- `references/repl-plan-execution.md`
 - `references/repl-approval-and-autonomy.md`
 - `references/repl-session-lifecycle.md`
 - `references/repl-plan-build-modes.md`
