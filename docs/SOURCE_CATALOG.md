@@ -31,6 +31,7 @@ This file is the short human-readable summary.
 - `codex-rs/core/prompt.md`
 - base-instructions templates
 - memory-consolidation templates
+- MCP codex tool configuration
 
 ## OpenCode design-pattern baseline
 
@@ -40,6 +41,7 @@ This file is the short human-readable summary.
 - `anomalyco/opencode` `specs/project.md`
 - `anomalyco/opencode` session prompt contracts
 - `anomalyco/opencode` SDK OpenAPI session and permission schema
+- `anomalyco/opencode` verification expectations from `CONTRIBUTING.md`
 - `anomalyco/opencode` plan/build prompt contracts
 - `anomalyco/opencode` session system
 

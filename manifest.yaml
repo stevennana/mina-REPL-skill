@@ -25,10 +25,15 @@ skill:
     - plan_build_behavior
     - context_engineering_contract
     - prompt_composition_contract
+    - prompt_template_contract
     - memory_policy_contract
     - model_config_contract
     - tool_loop_contract
+    - tool_registry_contract
     - plan_execution_contract
+    - verification_contract
+    - recovery_playbook
+    - maturity_matrix
     - review_surface
     - source_catalog
     - best_practices_catalog
@@ -56,10 +61,13 @@ skill:
     - session_metadata_layer
     - instruction_layering
     - prompt_composition_layer
+    - prompt_template_layer
     - model_selection_layer
     - tool_registry_layer
     - turn_orchestration_layer
     - plan_runner_layer
+    - evaluator_layer
+    - recovery_layer
     - review_surface_layer
     - source_catalog_loader
     - slash_command_extensions

@@ -18,8 +18,10 @@ Before redesigning or extending a REPL, read these references:
 - `references/repl-runtime-contract.md`
 - `references/repl-context-engineering.md`
 - `references/repl-prompt-composition.md`
+- `references/repl-prompt-templates.md`
 - `references/repl-memory-and-model-config.md`
 - `references/repl-tool-loop-and-turn-orchestration.md`
+- `references/repl-mcp-and-tool-registry.md`
 - `references/repl-plan-execution.md`
 - `references/repl-approval-and-autonomy.md`
 - `references/repl-session-lifecycle.md`
@@ -27,6 +29,9 @@ Before redesigning or extending a REPL, read these references:
 - `references/repl-architecture.md`
 - `references/repl-extension-points.md`
 - `references/repl-terminal-ui-best-practices.md`
+- `references/repl-verification-and-evaluation.md`
+- `references/repl-failure-and-recovery.md`
+- `references/repl-maturity-matrix.md`
 - `references/repl-source-baseline.md`
 - `references/repl-design-opencode.md`
 
@@ -39,6 +44,8 @@ Before redesigning or extending a REPL, read these references:
 - context engineering and prompt composition need a clear operator contract
 - memory and model configuration need a clear operator contract
 - tool-driven multiturn behavior needs to stay explicit and inspectable
+- prompt templates and composition rules need to stay explicit and reusable
+- verification and recovery policies need to stay explicit and reviewable
 - shell execution must remain separate from assistant text
 - transcript and history persistence should be first-class
 - session lifecycle, review, or compaction behavior need to be first-class
@@ -73,8 +80,10 @@ Higher-level project code should own:
    - plan vs build behavior
    - approval/autonomy semantics
    - instruction layering and prompt-composition semantics
+   - reusable prompt templates
    - memory and model-selection semantics
    - tool loop and turn state semantics
+   - evaluation, review, and recovery semantics
    - slash commands
    - shell boundaries
    - transcript, history, and session lifecycle behavior
@@ -90,11 +99,14 @@ Higher-level project code should own:
 - Preserve explicit approval modes when the shell supports autonomy levels.
 - Keep system, developer, project-doc, and user instruction layers explicit.
 - Compose prompts from stable layers plus dynamic state instead of concatenating everything ad hoc.
+- Keep reusable prompt skeletons for base, developer, compact, plan, and build behavior.
 - Keep short-term and long-term memory policies explicit.
 - Keep provider/model configuration explicit and operator-visible.
 - Expose tool-loop and turn state instead of hiding it behind a black-box agent run.
+- Keep tool schemas and tool origins discoverable.
 - Persist both history and transcripts so the runtime is usable and reproducible.
 - Treat session lifecycle and post-change review surfaces as first-class if the shell grows beyond a minimal loop.
+- Keep evaluation and recovery playbooks explicit rather than relying on operator intuition.
 - Keep input handling, execution, and rendering loosely coupled.
 - Prefer `prompt_toolkit` + `rich` as the default Python stack unless the project already established a different runtime contract.
 

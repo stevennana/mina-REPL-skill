@@ -23,6 +23,11 @@ class ManifestTests(unittest.TestCase):
         self.assertIn("plan_execution_contract", manifest.capabilities)
         self.assertIn("context_engineering_contract", manifest.capabilities)
         self.assertIn("prompt_composition_contract", manifest.capabilities)
+        self.assertIn("prompt_template_contract", manifest.capabilities)
+        self.assertIn("tool_registry_contract", manifest.capabilities)
+        self.assertIn("verification_contract", manifest.capabilities)
+        self.assertIn("recovery_playbook", manifest.capabilities)
+        self.assertIn("maturity_matrix", manifest.capabilities)
 
     def test_sources_load(self) -> None:
         sources = load_source_catalog()
@@ -36,12 +41,16 @@ class ManifestTests(unittest.TestCase):
         self.assertIn("memory_state", contracts["contracts"])
         self.assertIn("instruction_layers", contracts["contracts"])
         self.assertIn("prompt_composition", contracts["contracts"])
+        self.assertIn("prompt_templates", contracts["contracts"])
         self.assertIn("model_selection", contracts["contracts"])
         self.assertIn("context_budget_policy", contracts["contracts"])
         self.assertIn("turn_state", contracts["contracts"])
+        self.assertIn("tool_registry", contracts["contracts"])
         self.assertIn("session_metadata", contracts["contracts"])
         self.assertIn("plan_state", contracts["contracts"])
         self.assertIn("review_state", contracts["contracts"])
+        self.assertIn("evaluation_policy", contracts["contracts"])
+        self.assertIn("recovery_policy", contracts["contracts"])
 
 
 if __name__ == "__main__":

@@ -30,6 +30,8 @@ class SkillLayoutTests(unittest.TestCase):
             "repl-context-engineering.md",
             "repl-prompt-composition.md",
             "repl-memory-and-model-config.md",
+            "repl-prompt-templates.md",
+            "repl-mcp-and-tool-registry.md",
             "repl-tool-loop-and-turn-orchestration.md",
             "repl-plan-execution.md",
             "repl-approval-and-autonomy.md",
@@ -38,10 +40,17 @@ class SkillLayoutTests(unittest.TestCase):
             "repl-architecture.md",
             "repl-extension-points.md",
             "repl-terminal-ui-best-practices.md",
+            "repl-verification-and-evaluation.md",
+            "repl-failure-and-recovery.md",
+            "repl-maturity-matrix.md",
             "repl-source-baseline.md",
             "repl-design-opencode.md",
         ):
             self.assertTrue((references / name).exists(), msg=f"missing reference file: {name}")
+
+    def test_agents_metadata_mentions_skill_name(self) -> None:
+        text = (ROOT / "agents" / "openai.yaml").read_text(encoding="utf-8")
+        self.assertIn("mina-repl-core", text)
 
 
 if __name__ == "__main__":

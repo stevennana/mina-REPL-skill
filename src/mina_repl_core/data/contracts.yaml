@@ -96,6 +96,19 @@ contracts:
       - name: uses_plan_state
         type: boolean
 
+  prompt_templates:
+    fields:
+      - name: base_template
+        type: boolean
+      - name: developer_template
+        type: boolean
+      - name: compact_template
+        type: boolean
+      - name: plan_template
+        type: boolean
+      - name: build_template
+        type: boolean
+
   model_selection:
     fields:
       - name: provider_id
@@ -130,6 +143,17 @@ contracts:
         type: string
         optional: true
       - name: interruptible
+        type: boolean
+
+  tool_registry:
+    fields:
+      - name: tool_ids_visible
+        type: boolean
+      - name: tool_origin_visible
+        type: boolean
+      - name: tool_schema_visible
+        type: boolean
+      - name: approval_metadata_visible
         type: boolean
 
   session_metadata:
@@ -178,6 +202,31 @@ contracts:
       - name: snapshot_enabled
         type: boolean
         optional: true
+
+  evaluation_policy:
+    fields:
+      - name: contract_checks
+        type: boolean
+      - name: transcript_checks
+        type: boolean
+      - name: operator_surface_checks
+        type: boolean
+      - name: ui_validation
+        type: boolean
+
+  recovery_policy:
+    fields:
+      - name: interrupt_supported
+        type: boolean
+      - name: retry_supported
+        type: boolean
+      - name: fork_supported
+        type: boolean
+      - name: revert_supported
+        type: boolean
+        optional: true
+      - name: compaction_resume_supported
+        type: boolean
 
   slash_commands:
     built_in:

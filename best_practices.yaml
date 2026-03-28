@@ -79,6 +79,13 @@ best_practices:
       considered explicitly when composing prompt messages instead of assuming one universal prompt.
     categories: [configuration, context]
 
+  - id: ship-reusable-prompt-templates
+    title: Keep reusable prompt templates for major shell modes
+    summary: >
+      Base, developer, compact, plan, and build prompt layers should be explicit and reusable
+      rather than recreated ad hoc in multiple code paths.
+    categories: [prompting, maintainability]
+
   - id: repl-first-runtime
     title: Build the interaction loop first
     summary: >
@@ -121,6 +128,13 @@ best_practices:
       Model tool-driven turns as a visible loop with model, approval, tool, and completion
       phases instead of hiding them inside a black-box agent run.
     categories: [runtime, operability]
+
+  - id: keep-tool-registry-discoverable
+    title: Keep tool schemas and origins discoverable
+    summary: >
+      The shell should be able to expose tool ids, schemas, origins, and approval expectations
+      so tool use is inspectable by both operators and downstream agent logic.
+    categories: [tools, operability]
 
   - id: use-compact-prompts-intentionally
     title: Compact intentionally instead of truncating blindly
@@ -185,6 +199,27 @@ best_practices:
       If the shell supports planning, make plans visible, resumable, and clearly distinct
       from raw chat text. Do not let planning dissolve into untracked internal reasoning.
     categories: [planning, operability]
+
+  - id: evaluate-shell-behavior-beyond-command-success
+    title: Evaluate more than command success
+    summary: >
+      Shell verification should include operator-visible state, transcript behavior,
+      approval behavior, and review surfaces rather than only whether commands ran.
+    categories: [verification, operability]
+
+  - id: publish-recovery-playbooks
+    title: Keep failure and recovery behavior explicit
+    summary: >
+      Interrupt, retry, fork, revert, compaction, and recovery paths should be documented
+      explicitly instead of being left to operator intuition.
+    categories: [recovery, operability]
+
+  - id: use-a-maturity-matrix
+    title: Distinguish base runtime from advanced shell layers
+    summary: >
+      Keep a clear maturity model so teams can tell which features belong to a minimal REPL,
+      a full agent shell, or a multi-client shell.
+    categories: [architecture, maintainability]
 
   - id: review-surface-after-mutations
     title: Keep a review surface after mutating actions

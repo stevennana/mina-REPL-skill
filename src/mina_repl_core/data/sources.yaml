@@ -262,6 +262,18 @@ sources:
       - Keep summaries navigational and discriminative.
       - Preserve evidence boundaries between raw history and distilled memory.
 
+  - id: openai.codex.agents_doc
+    title: "openai/codex — docs/agents_md.md"
+    url: "https://github.com/openai/codex/blob/main/docs/agents_md.md"
+    kind: public_project
+    role: project_doc_layer_reference
+    why_it_matters: >
+      Codex documents AGENTS layering explicitly and even models additional hierarchical guidance
+      when child-agent project-doc support is enabled.
+    extracted_guidance:
+      - Project-doc scope and precedence should be explicit.
+      - Hierarchical project-doc layering is part of context engineering.
+
   - id: openai.codex.model_messages
     title: "openai/codex — model message template assembly"
     url: "https://github.com/openai/codex/blob/main/codex-rs/protocol/src/openai_models.rs"
@@ -273,6 +285,18 @@ sources:
     extracted_guidance:
       - Prompt composition benefits from structured templates.
       - Model-specific variables and personalities should be treated explicitly.
+
+  - id: openai.codex.tool_call_config
+    title: "openai/codex — MCP codex tool configuration"
+    url: "https://github.com/openai/codex/blob/main/codex-rs/mcp-server/src/codex_tool_config.rs"
+    kind: public_project
+    role: tool_registry_and_prompt_override_reference
+    why_it_matters: >
+      Codex exposes model, approval policy, sandbox, base instructions, developer instructions,
+      and compact prompt as explicit tool-call parameters rather than hidden implementation state.
+    extracted_guidance:
+      - Tool/session configuration should be explicit and schema-driven.
+      - Prompt overrides belong in well-defined fields, not ad hoc text concatenation.
 
   - id: openai.codex_cli.readme_legacy
     title: "openai/codex — codex-cli/README.md"
@@ -442,6 +466,18 @@ sources:
       - Keep prompt behavior explicit in dedicated prompt-contract layers.
       - Separate default behavior from plan/build overrides.
       - Prompt composition should encode operator experience, not just tool permissions.
+
+  - id: anomaly.opencode.verification_guidance
+    title: "anomalyco/opencode — CONTRIBUTING.md verification expectations"
+    url: "https://github.com/anomalyco/opencode/blob/main/CONTRIBUTING.md"
+    kind: public_project
+    role: verification_reference
+    why_it_matters: >
+      OpenCode asks contributors to show screenshots for UI work and explain how logic changes
+      were verified, which is directly useful for shell evaluation guidance.
+    extracted_guidance:
+      - UI changes should carry visual proof when possible.
+      - Logic changes should document reproducible verification steps.
 
   - id: anomaly.opencode.build_switch
     title: "anomalyco/opencode — build mode switch prompt"

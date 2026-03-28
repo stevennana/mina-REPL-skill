@@ -137,14 +137,19 @@ If you are using this repo as a skill, read in this order:
 5. `references/repl-memory-and-model-config.md`
 6. `references/repl-tool-loop-and-turn-orchestration.md`
 7. `references/repl-plan-execution.md`
-8. `references/repl-approval-and-autonomy.md`
-9. `references/repl-session-lifecycle.md`
-10. `references/repl-plan-build-modes.md`
-11. `references/repl-architecture.md`
-12. `references/repl-extension-points.md`
-13. `references/repl-terminal-ui-best-practices.md`
-14. `references/repl-source-baseline.md`
-15. `references/repl-design-opencode.md`
+8. `references/repl-prompt-templates.md`
+9. `references/repl-mcp-and-tool-registry.md`
+10. `references/repl-approval-and-autonomy.md`
+11. `references/repl-session-lifecycle.md`
+12. `references/repl-plan-build-modes.md`
+13. `references/repl-architecture.md`
+14. `references/repl-extension-points.md`
+15. `references/repl-terminal-ui-best-practices.md`
+16. `references/repl-verification-and-evaluation.md`
+17. `references/repl-failure-and-recovery.md`
+18. `references/repl-maturity-matrix.md`
+19. `references/repl-source-baseline.md`
+20. `references/repl-design-opencode.md`
 
 ## Example Import
 

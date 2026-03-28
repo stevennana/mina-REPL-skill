@@ -7,6 +7,8 @@ For the deeper contracts, read:
 - `references/repl-context-engineering.md`
 - `references/repl-prompt-composition.md`
 - `references/repl-memory-and-model-config.md`
+- `references/repl-prompt-templates.md`
+- `references/repl-mcp-and-tool-registry.md`
 - `references/repl-tool-loop-and-turn-orchestration.md`
 - `references/repl-plan-execution.md`
 - `references/repl-approval-and-autonomy.md`
