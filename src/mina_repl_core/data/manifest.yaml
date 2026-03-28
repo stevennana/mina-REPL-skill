@@ -23,6 +23,8 @@ skill:
     - approval_policy_contract
     - session_lifecycle
     - plan_build_behavior
+    - context_engineering_contract
+    - prompt_composition_contract
     - memory_policy_contract
     - model_config_contract
     - tool_loop_contract
@@ -52,6 +54,8 @@ skill:
     - transcript_export
     - approval_policy_layer
     - session_metadata_layer
+    - instruction_layering
+    - prompt_composition_layer
     - model_selection_layer
     - tool_registry_layer
     - turn_orchestration_layer

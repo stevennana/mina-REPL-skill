@@ -21,6 +21,21 @@ best_practices:
       instructions instead of baking them into the runtime layer.
     categories: [architecture, documentation]
 
+  - id: explicit-context-engineering-layers
+    title: Treat context as layered inputs
+    summary: >
+      Keep system/base instructions, developer/runtime instructions, project-doc guidance,
+      memory summaries, tool state, plan state, and user turns as explicit layers instead of
+      flattening everything into one opaque prompt blob.
+    categories: [context, architecture]
+
+  - id: separate-stable-and-dynamic-context
+    title: Keep stable and dynamic context separate
+    summary: >
+      Stable instructions and long-lived guidance should be handled differently from current
+      turn state, active tool state, and pending review state so compaction and debugging stay tractable.
+    categories: [context, maintainability]
+
   - id: explicit-runtime-contract
     title: Make the operator-visible runtime contract explicit
     summary: >
@@ -56,6 +71,13 @@ best_practices:
       Provider, model, reasoning level, and related config should be operator-visible and
       documented rather than buried in code or implicit defaults.
     categories: [configuration, operability]
+
+  - id: model-aware-prompt-composition
+    title: Make prompt composition model-aware
+    summary: >
+      Reasoning level, modality support, provider behavior, and variant/personality should be
+      considered explicitly when composing prompt messages instead of assuming one universal prompt.
+    categories: [configuration, context]
 
   - id: repl-first-runtime
     title: Build the interaction loop first
@@ -99,6 +121,20 @@ best_practices:
       Model tool-driven turns as a visible loop with model, approval, tool, and completion
       phases instead of hiding them inside a black-box agent run.
     categories: [runtime, operability]
+
+  - id: use-compact-prompts-intentionally
+    title: Compact intentionally instead of truncating blindly
+    summary: >
+      Compaction should preserve user intent, key constraints, and the current plan/tool state.
+      It should be visible to the operator and treated as a policy decision rather than hidden cleanup.
+    categories: [context, memory]
+
+  - id: treat-project-docs-as-structured-context
+    title: Treat project docs as structured context, not chat
+    summary: >
+      Repo-local instructions should remain a scoped context layer with precedence rules rather
+      than being mixed into raw chat history as if they were ordinary conversation.
+    categories: [documentation, context]
 
   - id: approval-policy-outside-runtime
     title: Keep approval policy outside the prompt loop

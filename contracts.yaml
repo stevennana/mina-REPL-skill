@@ -71,6 +71,31 @@ contracts:
       - name: project_doc_layers
         type: array
 
+  instruction_layers:
+    fields:
+      - name: base_instructions
+        type: boolean
+      - name: developer_instructions
+        type: boolean
+      - name: project_docs
+        type: array
+      - name: user_turn
+        type: boolean
+
+  prompt_composition:
+    fields:
+      - name: operational_mode
+        type: string
+        allowed: [plan, build]
+      - name: compact_prompt
+        type: boolean
+      - name: uses_session_summary
+        type: boolean
+      - name: uses_tool_state
+        type: boolean
+      - name: uses_plan_state
+        type: boolean
+
   model_selection:
     fields:
       - name: provider_id
@@ -83,6 +108,15 @@ contracts:
       - name: variant
         type: string
         optional: true
+
+  context_budget_policy:
+    fields:
+      - name: context_window_known
+        type: boolean
+      - name: reserves_output_headroom
+        type: boolean
+      - name: compaction_enabled
+        type: boolean
 
   turn_state:
     fields:

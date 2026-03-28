@@ -5,6 +5,8 @@ This repo now keeps the canonical skill-consumed guidance in `references/`.
 Read these first for the actual REPL best-practice material:
 
 - `references/repl-runtime-contract.md`
+- `references/repl-context-engineering.md`
+- `references/repl-prompt-composition.md`
 - `references/repl-memory-and-model-config.md`
 - `references/repl-tool-loop-and-turn-orchestration.md`
 - `references/repl-plan-execution.md`

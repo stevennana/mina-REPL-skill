@@ -16,6 +16,8 @@ Those belong in higher-level project skills and repo-specific instructions.
 Before redesigning or extending a REPL, read these references:
 
 - `references/repl-runtime-contract.md`
+- `references/repl-context-engineering.md`
+- `references/repl-prompt-composition.md`
 - `references/repl-memory-and-model-config.md`
 - `references/repl-tool-loop-and-turn-orchestration.md`
 - `references/repl-plan-execution.md`
@@ -34,6 +36,7 @@ Before redesigning or extending a REPL, read these references:
 - chat, shell, and multiline modes need to stay explicit
 - planning and execution behavior need to stay explicit
 - approval and autonomy policy need a clear operator contract
+- context engineering and prompt composition need a clear operator contract
 - memory and model configuration need a clear operator contract
 - tool-driven multiturn behavior needs to stay explicit and inspectable
 - shell execution must remain separate from assistant text
@@ -69,6 +72,7 @@ Higher-level project code should own:
    - mode semantics
    - plan vs build behavior
    - approval/autonomy semantics
+   - instruction layering and prompt-composition semantics
    - memory and model-selection semantics
    - tool loop and turn state semantics
    - slash commands
@@ -84,6 +88,8 @@ Higher-level project code should own:
 - Preserve explicit `chat`, `shell`, and `multiline` modes.
 - Preserve explicit `plan` vs `build` behavior when the shell supports both.
 - Preserve explicit approval modes when the shell supports autonomy levels.
+- Keep system, developer, project-doc, and user instruction layers explicit.
+- Compose prompts from stable layers plus dynamic state instead of concatenating everything ad hoc.
 - Keep short-term and long-term memory policies explicit.
 - Keep provider/model configuration explicit and operator-visible.
 - Expose tool-loop and turn state instead of hiding it behind a black-box agent run.

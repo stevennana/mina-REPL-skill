@@ -224,6 +224,56 @@ sources:
       - Update docs when APIs or operator-facing behavior change.
       - Treat repo guidance as a layer above the runtime substrate.
 
+  - id: openai.codex.prompt_contract
+    title: "openai/codex — codex-rs/core/prompt.md"
+    url: "https://github.com/openai/codex/blob/main/codex-rs/core/prompt.md"
+    kind: public_project
+    role: prompt_composition_reference
+    why_it_matters: >
+      Codex's core prompt contract shows how base instructions, AGENTS precedence, planning,
+      responsiveness, and task execution rules are assembled into a durable system/developer layer.
+    extracted_guidance:
+      - Keep instruction precedence explicit.
+      - Separate responsiveness and planning behavior from task-specific user content.
+      - Treat AGENTS/project-doc scope as part of prompt composition, not an afterthought.
+
+  - id: openai.codex.base_instructions
+    title: "openai/codex — base instructions template"
+    url: "https://github.com/openai/codex/blob/main/codex-rs/protocol/src/prompts/base_instructions/default.md"
+    kind: public_project
+    role: base_instruction_reference
+    why_it_matters: >
+      The base-instructions template makes the system/developer layer explicit and shows
+      how stable shell behavior can be composed separately from per-turn user input.
+    extracted_guidance:
+      - Stable operational instructions belong in a dedicated base layer.
+      - Planning, preambles, and execution policy can be specified without mixing them into user turns.
+
+  - id: openai.codex.memory_consolidation
+    title: "openai/codex — memory consolidation template"
+    url: "https://github.com/openai/codex/blob/main/codex-rs/core/templates/memories/consolidation.md"
+    kind: public_project
+    role: context_engineering_reference
+    why_it_matters: >
+      Codex's memory template explicitly optimizes for progressive disclosure, navigational
+      summaries, and reducing future steering and reasoning cost.
+    extracted_guidance:
+      - Use progressive disclosure for long-term memory.
+      - Keep summaries navigational and discriminative.
+      - Preserve evidence boundaries between raw history and distilled memory.
+
+  - id: openai.codex.model_messages
+    title: "openai/codex — model message template assembly"
+    url: "https://github.com/openai/codex/blob/main/codex-rs/protocol/src/openai_models.rs"
+    kind: public_project
+    role: model_message_reference
+    why_it_matters: >
+      Codex models instruction templates and variables as structured data instead of plain string
+      concatenation, which is a useful pattern for prompt composition.
+    extracted_guidance:
+      - Prompt composition benefits from structured templates.
+      - Model-specific variables and personalities should be treated explicitly.
+
   - id: openai.codex_cli.readme_legacy
     title: "openai/codex — codex-cli/README.md"
     url: "https://github.com/openai/codex/blob/main/codex-cli/README.md"
@@ -379,6 +429,19 @@ sources:
       - Planning behavior should be explicitly read-only.
       - The shell should make it clear when execution is not allowed yet.
       - Clarifying questions are part of planning, not a failure mode.
+
+  - id: anomaly.opencode.prompt_contracts
+    title: "anomalyco/opencode — session prompt contracts"
+    url: "https://github.com/anomalyco/opencode/blob/main/packages/opencode/src/session/prompt/default.txt"
+    kind: public_project
+    role: prompt_style_reference
+    why_it_matters: >
+      OpenCode's prompt contracts make tone, tool usage, proactiveness, and final-answer behavior
+      explicit in composable prompt files rather than burying them in application code.
+    extracted_guidance:
+      - Keep prompt behavior explicit in dedicated prompt-contract layers.
+      - Separate default behavior from plan/build overrides.
+      - Prompt composition should encode operator experience, not just tool permissions.
 
   - id: anomaly.opencode.build_switch
     title: "anomalyco/opencode — build mode switch prompt"

@@ -4,6 +4,8 @@ This file is the repo-facing integration summary.
 For the deeper contracts, read:
 
 - `references/repl-runtime-contract.md`
+- `references/repl-context-engineering.md`
+- `references/repl-prompt-composition.md`
 - `references/repl-memory-and-model-config.md`
 - `references/repl-tool-loop-and-turn-orchestration.md`
 - `references/repl-plan-execution.md`

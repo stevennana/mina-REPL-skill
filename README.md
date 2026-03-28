@@ -132,17 +132,19 @@ If you are using this repo as a skill, read in this order:
 
 1. `SKILL.md`
 2. `references/repl-runtime-contract.md`
-3. `references/repl-memory-and-model-config.md`
-4. `references/repl-tool-loop-and-turn-orchestration.md`
-5. `references/repl-plan-execution.md`
-6. `references/repl-approval-and-autonomy.md`
-7. `references/repl-session-lifecycle.md`
-8. `references/repl-plan-build-modes.md`
-9. `references/repl-architecture.md`
-10. `references/repl-extension-points.md`
-11. `references/repl-terminal-ui-best-practices.md`
-12. `references/repl-source-baseline.md`
-13. `references/repl-design-opencode.md`
+3. `references/repl-context-engineering.md`
+4. `references/repl-prompt-composition.md`
+5. `references/repl-memory-and-model-config.md`
+6. `references/repl-tool-loop-and-turn-orchestration.md`
+7. `references/repl-plan-execution.md`
+8. `references/repl-approval-and-autonomy.md`
+9. `references/repl-session-lifecycle.md`
+10. `references/repl-plan-build-modes.md`
+11. `references/repl-architecture.md`
+12. `references/repl-extension-points.md`
+13. `references/repl-terminal-ui-best-practices.md`
+14. `references/repl-source-baseline.md`
+15. `references/repl-design-opencode.md`
 
 ## Example Import
 

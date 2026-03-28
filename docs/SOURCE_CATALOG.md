@@ -28,6 +28,9 @@ This file is the short human-readable summary.
 - `docs/tui-chat-composer.md`
 - `codex-rs/docs/codex_mcp_interface.md`
 - `docs/config.md`
+- `codex-rs/core/prompt.md`
+- base-instructions templates
+- memory-consolidation templates
 
 ## OpenCode design-pattern baseline
 

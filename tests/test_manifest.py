@@ -21,6 +21,8 @@ class ManifestTests(unittest.TestCase):
         self.assertIn("model_config_contract", manifest.capabilities)
         self.assertIn("tool_loop_contract", manifest.capabilities)
         self.assertIn("plan_execution_contract", manifest.capabilities)
+        self.assertIn("context_engineering_contract", manifest.capabilities)
+        self.assertIn("prompt_composition_contract", manifest.capabilities)
 
     def test_sources_load(self) -> None:
         sources = load_source_catalog()
@@ -32,7 +34,10 @@ class ManifestTests(unittest.TestCase):
         self.assertIn("/quit", contracts["contracts"]["slash_commands"]["built_in"])
         self.assertIn("operational_state", contracts["contracts"])
         self.assertIn("memory_state", contracts["contracts"])
+        self.assertIn("instruction_layers", contracts["contracts"])
+        self.assertIn("prompt_composition", contracts["contracts"])
         self.assertIn("model_selection", contracts["contracts"])
+        self.assertIn("context_budget_policy", contracts["contracts"])
         self.assertIn("turn_state", contracts["contracts"])
         self.assertIn("session_metadata", contracts["contracts"])
         self.assertIn("plan_state", contracts["contracts"])
