@@ -37,6 +37,7 @@ skill:
     - verification_contract
     - recovery_playbook
     - maturity_matrix
+    - llm_observability_contract
     - review_surface
     - source_catalog
     - best_practices_catalog
@@ -73,6 +74,7 @@ skill:
     - plan_runner_layer
     - evaluator_layer
     - recovery_layer
+    - llm_observability_layer
     - review_surface_layer
     - source_catalog_loader
     - slash_command_extensions

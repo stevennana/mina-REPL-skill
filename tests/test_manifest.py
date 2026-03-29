@@ -31,6 +31,7 @@ class ManifestTests(unittest.TestCase):
         self.assertIn("verification_contract", manifest.capabilities)
         self.assertIn("recovery_playbook", manifest.capabilities)
         self.assertIn("maturity_matrix", manifest.capabilities)
+        self.assertIn("llm_observability_contract", manifest.capabilities)
 
     def test_sources_load(self) -> None:
         sources = load_source_catalog()
@@ -55,6 +56,7 @@ class ManifestTests(unittest.TestCase):
         self.assertIn("plan_state", contracts["contracts"])
         self.assertIn("review_state", contracts["contracts"])
         self.assertIn("evaluation_policy", contracts["contracts"])
+        self.assertIn("llm_observability", contracts["contracts"])
         self.assertIn("recovery_policy", contracts["contracts"])
 
 

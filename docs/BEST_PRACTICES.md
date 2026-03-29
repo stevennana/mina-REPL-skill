@@ -19,6 +19,7 @@ Read these first for the actual REPL best-practice material:
 - `references/repl-plan-build-modes.md`
 - `references/repl-three-surface-ux.md`
 - `references/repl-terminal-ui-best-practices.md`
+- `references/repl-llm-logging-and-observability.md`
 - `references/repl-verification-and-evaluation.md`
 - `references/repl-failure-and-recovery.md`
 - `references/repl-maturity-matrix.md`

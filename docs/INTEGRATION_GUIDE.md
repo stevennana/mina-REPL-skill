@@ -18,6 +18,7 @@ For the deeper contracts, read:
 - `references/repl-plan-build-modes.md`
 - `references/repl-three-surface-ux.md`
 - `references/repl-terminal-ui-best-practices.md`
+- `references/repl-llm-logging-and-observability.md`
 
 ## Install
 

@@ -34,6 +34,8 @@ This file is the short human-readable summary.
 - memory-consolidation templates
 - MCP codex tool configuration
 - tools orchestrator and orchestrator templates
+- Codex tracing / verbose logging docs
+- `docs/js_repl.md` bounded vs trace logging
 
 ## OpenCode design-pattern baseline
 
@@ -48,6 +50,7 @@ This file is the short human-readable summary.
 - `anomalyco/opencode` plan/build prompt contracts
 - `anomalyco/opencode` session system
 - `anomalyco/opencode` session processor and LLM loop
+- `anomalyco/opencode` debugging guidance from `CONTRIBUTING.md`
 
 These are useful for extracting TUI-first, multi-client, session-centric terminal-agent patterns.
 

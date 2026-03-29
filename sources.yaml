@@ -362,6 +362,18 @@ sources:
       - History is a configurable product behavior, not just an implementation detail.
       - Global, repo, and subdirectory guidance should layer top-down.
 
+  - id: openai.codex.logging
+    title: "openai/codex — tracing and verbose logging"
+    url: "https://github.com/openai/codex/blob/main/codex-cli/README.md"
+    kind: public_project
+    role: llm_observability_reference
+    why_it_matters: >
+      Codex documents explicit debug toggles like `DEBUG=true` and, in the Rust docs, stable
+      `RUST_LOG` and log-directory behavior for focused LLM/runtime debugging.
+    extracted_guidance:
+      - Provide explicit debug toggles for LLM communication troubleshooting.
+      - Keep a stable log sink and per-run override mechanism.
+
   - id: openai.codex.chat_composer_history
     title: "openai/codex — docs/tui-chat-composer.md"
     url: "https://github.com/openai/codex/blob/main/docs/tui-chat-composer.md"
@@ -374,6 +386,18 @@ sources:
       - Persistent history and local draft state should be modeled separately.
       - Rich in-session recall does not require storing every detail in durable history.
       - Compaction and history behavior should be intentional and reviewable.
+
+  - id: openai.codex.js_repl_logging
+    title: "openai/codex — docs/js_repl.md"
+    url: "https://github.com/openai/codex/blob/main/docs/js_repl.md"
+    kind: public_project
+    role: bounded_trace_logging_reference
+    why_it_matters: >
+      Codex explicitly documents a useful logging pattern where info-level logs emit bounded
+      summaries and trace-level logs emit exact serialized objects.
+    extracted_guidance:
+      - Default to bounded summaries at normal log levels.
+      - Reserve exact serialized payloads for trace-level debugging.
 
   - id: openai.codex.mcp_threads_turns
     title: "openai/codex — codex-rs/docs/codex_mcp_interface.md"
@@ -576,6 +600,18 @@ sources:
     extracted_guidance:
       - Natural-language turns should enter a real model/tool loop, not a deterministic router only.
       - Tool availability and prompt layers should be assembled before the turn starts.
+
+  - id: anomaly.opencode.debugging
+    title: "anomalyco/opencode — debugging guidance"
+    url: "https://github.com/anomalyco/opencode/blob/main/CONTRIBUTING.md"
+    kind: public_project
+    role: debugging_reference
+    why_it_matters: >
+      OpenCode recommends terminal-first debugger attachment and explicit server/TUI debugging
+      flows for diagnosing model/session behavior.
+    extracted_guidance:
+      - Prefer terminal-first debugging for live agent shells.
+      - Make server-side and UI-side debugging entrypoints explicit.
 
   - id: anomaly.opencode.tool_context
     title: "anomalyco/opencode — tool context"

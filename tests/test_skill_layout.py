@@ -43,6 +43,7 @@ class SkillLayoutTests(unittest.TestCase):
             "repl-architecture.md",
             "repl-extension-points.md",
             "repl-terminal-ui-best-practices.md",
+            "repl-llm-logging-and-observability.md",
             "repl-verification-and-evaluation.md",
             "repl-failure-and-recovery.md",
             "repl-maturity-matrix.md",

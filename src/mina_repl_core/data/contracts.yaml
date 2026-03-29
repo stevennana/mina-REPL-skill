@@ -241,6 +241,27 @@ contracts:
       - name: ui_validation
         type: boolean
 
+  llm_observability:
+    fields:
+      - name: request_logging
+        type: boolean
+      - name: response_logging
+        type: boolean
+      - name: stream_event_logging
+        type: boolean
+      - name: tool_loop_logging
+        type: boolean
+      - name: redaction_enabled
+        type: boolean
+      - name: debug_toggle
+        type: boolean
+      - name: trace_toggle
+        type: boolean
+      - name: correlation_ids
+        type: array
+      - name: log_sink_configurable
+        type: boolean
+
   recovery_policy:
     fields:
       - name: interrupt_supported

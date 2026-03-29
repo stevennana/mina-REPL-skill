@@ -149,14 +149,15 @@ If you are using this repo as a skill, read in this order:
 15. `references/repl-architecture.md`
 16. `references/repl-extension-points.md`
 17. `references/repl-terminal-ui-best-practices.md`
-18. `references/repl-verification-and-evaluation.md`
-19. `references/repl-failure-and-recovery.md`
-20. `references/repl-maturity-matrix.md`
-21. `references/repl-source-traceability.md`
-22. `references/repl-subsystem-map-codex.md`
-23. `references/repl-subsystem-map-opencode.md`
-24. `references/repl-source-baseline.md`
-25. `references/repl-design-opencode.md`
+18. `references/repl-llm-logging-and-observability.md`
+19. `references/repl-verification-and-evaluation.md`
+20. `references/repl-failure-and-recovery.md`
+21. `references/repl-maturity-matrix.md`
+22. `references/repl-source-traceability.md`
+23. `references/repl-subsystem-map-codex.md`
+24. `references/repl-subsystem-map-opencode.md`
+25. `references/repl-source-baseline.md`
+26. `references/repl-design-opencode.md`
 
 ## Example Import
 

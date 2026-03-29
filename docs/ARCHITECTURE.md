@@ -53,6 +53,7 @@ For detailed runtime architecture, read:
 - `references/repl-extension-points.md`
 - `references/repl-three-surface-ux.md`
 - `references/repl-terminal-ui-best-practices.md`
+- `references/repl-llm-logging-and-observability.md`
 - `references/repl-verification-and-evaluation.md`
 - `references/repl-failure-and-recovery.md`
 - `references/repl-maturity-matrix.md`

@@ -277,6 +277,27 @@ best_practices:
       approval behavior, and review surfaces rather than only whether commands ran.
     categories: [verification, operability]
 
+  - id: use-layered-llm-observability
+    title: Use layered LLM observability
+    summary: >
+      Keep lightweight operational logs on by default, richer debug logs opt-in,
+      and exact payload traces reserved for explicit deep debugging.
+    categories: [observability, operability]
+
+  - id: correlate-all-llm-events
+    title: Correlate LLM events with stable ids
+    summary: >
+      Session id, turn id, provider id, model id, and tool call id should be
+      present in logs so overlapping turns and tool activity stay debuggable.
+    categories: [observability, operability]
+
+  - id: redact-and-bound-logs-by-default
+    title: Redact and bound LLM logs by default
+    summary: >
+      Default logs should redact secrets and avoid giant raw payload dumps.
+      Exact request and response bodies belong behind explicit trace-level logging.
+    categories: [observability, safety]
+
   - id: publish-recovery-playbooks
     title: Keep failure and recovery behavior explicit
     summary: >
