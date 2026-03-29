@@ -126,7 +126,7 @@ The useful OpenCode extraction for a Python REPL base is:
 
 These principles fit well with the existing `mina-repl-core` emphasis on:
 
-- explicit chat/shell/multiline modes
+- explicit internal routing states without promoting them to the primary AI-shell UX
 - shell as a dedicated tool channel
 - transcript/history durability
 - REPL-first architecture with a later upgrade path

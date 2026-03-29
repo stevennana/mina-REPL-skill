@@ -1,6 +1,6 @@
 # REPL Runtime Contract
 
-This file is the canonical deep guidance for the operator-visible behavior of `mina-repl-core`.
+This file is the canonical deep guidance for the runtime behavior and operator-facing boundaries of `mina-repl-core`.
 
 ## Primary Goal
 
@@ -10,7 +10,7 @@ chat, shell, and drafting into one ambiguous stream.
 ## Core Invariants
 
 - The runtime owns the prompt loop.
-- The runtime keeps `chat`, `shell`, and `multiline` as explicit internal routing states.
+- The runtime may keep `chat`, `shell`, and `multiline` as explicit internal routing states.
 - Shell execution is a separate tool channel, not just another assistant message.
 - History and transcripts are durable runtime concerns, not optional debugging extras.
 - Rendering is structured so the UI layer can evolve without breaking the runtime contract.
@@ -25,6 +25,8 @@ For AI-oriented shells, the primary operator model should be:
 
 The runtime model may still include `chat`, `shell`, and `multiline`, but those are routing mechanics.
 They should not become the main product mental model unless the shell is intentionally exposing low-level controls.
+
+If a downstream shell teaches users to switch `/mode` before the AI can use tools, the shell has promoted runtime internals into the product UX too aggressively.
 
 ## Runtime Routing States
 
@@ -71,6 +73,7 @@ For an AI-oriented shell:
 - `/mode` should be treated as low-level or advanced control, not the main happy path
 - `/run` should be the explicit operator override for manual shell commands
 - normal tool and shell selection should happen through the orchestrator
+- the shell should not teach `/mode` as a prerequisite for AI-driven tool use
 
 If a project adds commands, those commands should preserve the same separation between routing, execution, rendering, and transcript recording.
 

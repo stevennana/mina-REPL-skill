@@ -109,11 +109,13 @@ best_practices:
     categories: [architecture, runtime]
 
   - id: explicit-mode-boundaries
-    title: Keep chat, shell, and multiline modes explicit
+    title: Keep routing states explicit internally
     summary: >
       Distinguish assistant conversation, shell execution, and buffered multiline input
-      with first-class runtime modes. Do not collapse them into one ambiguous stream.
-    categories: [runtime, ux]
+      with first-class runtime routing states when the runtime needs them. Do not collapse
+      them into one ambiguous stream, but do not force operators to manage those states as
+      the primary AI-shell UX either.
+    categories: [runtime, architecture]
 
   - id: asyncio-by-default
     title: Use asyncio from the beginning

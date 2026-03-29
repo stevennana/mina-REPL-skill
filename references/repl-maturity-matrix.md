@@ -5,7 +5,7 @@ This file helps distinguish what belongs in different shell maturity levels.
 ## Base Runtime
 
 - prompt loop
-- explicit runtime modes
+- internal runtime routing states when needed
 - shell bridge
 - transcripts and history
 - structured rendering

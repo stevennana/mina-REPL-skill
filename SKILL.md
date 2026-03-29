@@ -1,6 +1,6 @@
 ---
 name: mina-repl-core
-description: Foundational skill for building or extending a Python-native AI REPL runtime. Use when a project needs a multi-turn terminal interaction loop, explicit chat/shell/multiline modes, persistent history and transcripts, structured terminal rendering, or a REPL-first upgrade path to richer UI.
+description: Foundational skill for building or extending a Python-native AI REPL runtime. Use when a project needs a multi-turn terminal interaction loop, clear internal routing for assistant turns and manual shell overrides, persistent history and transcripts, structured terminal rendering, or a REPL-first upgrade path to richer UI.
 ---
 
 # Mina REPL Core
@@ -25,12 +25,14 @@ Before redesigning or extending a REPL, read these references:
 - `references/repl-tool-loop-and-turn-orchestration.md`
 - `references/repl-mcp-and-tool-registry.md`
 - `references/repl-tool-selection-and-usage.md`
+- `references/repl-orchestrator-guidance.md`
 - `references/repl-plan-execution.md`
 - `references/repl-approval-and-autonomy.md`
 - `references/repl-session-lifecycle.md`
 - `references/repl-plan-build-modes.md`
 - `references/repl-architecture.md`
 - `references/repl-extension-points.md`
+- `references/repl-three-surface-ux.md`
 - `references/repl-terminal-ui-best-practices.md`
 - `references/repl-llm-logging-and-observability.md`
 - `references/repl-verification-and-evaluation.md`
@@ -45,7 +47,7 @@ Before redesigning or extending a REPL, read these references:
 ## Use This Skill When
 
 - the project needs a multi-turn prompt lifecycle
-- chat, shell, and multiline modes need to stay explicit
+- the runtime needs clear internal routing for natural-language turns, manual shell overrides, and buffered multiline input
 - planning and execution behavior need to stay explicit
 - approval and autonomy policy need a clear operator contract
 - context engineering and prompt composition need a clear operator contract
@@ -62,7 +64,7 @@ Before redesigning or extending a REPL, read these references:
 
 `mina-repl-core` should own:
 
-- prompt lifecycle and mode switching
+- prompt lifecycle and internal routing state
 - slash-command dispatch
 - transcript and history persistence
 - shell execution through an explicit bridge
@@ -83,7 +85,7 @@ Higher-level project code should own:
    - extending the base runtime
    - refactoring a tangled runtime into clear boundaries
 3. Keep the operator-visible contract explicit:
-   - mode semantics
+   - operator model vs runtime routing semantics
    - plan vs build behavior
    - approval/autonomy semantics
    - instruction layering and prompt-composition semantics
@@ -101,7 +103,7 @@ Higher-level project code should own:
 
 - Keep one `asyncio` event loop for prompts, assistant calls, shell execution, and streaming work.
 - Treat shell access as a tool channel with structured results, not as raw chat text.
-- Preserve explicit `chat`, `shell`, and `multiline` modes.
+- Keep `chat`, `shell`, and `multiline` as explicit internal routing states when the runtime needs them, but do not promote them to the primary operator UX.
 - Preserve explicit `plan` vs `build` behavior when the shell supports both.
 - Preserve explicit approval modes when the shell supports autonomy levels.
 - Keep system, developer, project-doc, and user instruction layers explicit.

@@ -59,7 +59,7 @@ Design rules:
 The chatting surface should answer:
 
 - what am I about to send
-- what mode is this input using
+- what routing or draft behavior applies to this submission, if any
 - what will happen if I submit now
 
 ## 3. Footer Surface
@@ -103,6 +103,8 @@ Keep these boundaries clean:
 - footer = what the operator should know now
 
 The orchestrator owns when the shell moves from user intent to tool execution. That state should be reflected across transcript and footer surfaces, not offloaded to manual `/mode` changes.
+
+If the UI makes users think they must switch modes before the AI can inspect files, run commands, or continue a tool turn, the shell is leaking runtime internals into the primary UX.
 
 Do not let:
 

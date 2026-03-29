@@ -50,6 +50,8 @@ If a shell exposes higher-autonomy modes, it should make the environment contrac
 
 Approval prompts should appear when the orchestrator selects a tool or shell action that crosses policy. They should not require the user to manually enter a separate shell mode first.
 
+If a shell requires `/mode shell` before approval can even be requested, it is coupling approval flow to runtime internals instead of to orchestrator-selected actions.
+
 ## Where Approval Logic Belongs
 
 Keep approval logic outside the prompt loop.

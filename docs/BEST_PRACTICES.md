@@ -33,7 +33,7 @@ Use this `docs/` copy as a short contributor-facing summary only.
 ## Summary
 
 - Keep the skill entrypoint concise and procedural.
-- Keep REPL modes explicit.
+- Keep runtime routing explicit internally, but keep natural-language turns as the primary AI-shell UX.
 - Treat shell execution as a separate tool channel.
 - Persist both history and transcripts.
 - Keep the runtime separate from product-specific policy and workflows.

@@ -117,7 +117,7 @@ python -m unittest discover -s tests -q
 `mina-repl-core` is the reusable runtime layer. It owns:
 
 - multi-turn prompt lifecycle
-- explicit `chat`, `shell`, and `multiline` modes
+- explicit internal routing for assistant turns, manual shell overrides, and multiline drafting
 - slash-command routing
 - transcript and history persistence
 - shell execution through a dedicated bridge
@@ -127,6 +127,8 @@ It should not be the place where project-specific business logic, approval polic
 workflows live.
 
 For AI-oriented shells, users should normally type natural-language requests; tool and shell selection should happen through the orchestrator, with approval pauses when required.
+
+That means `chat`, `shell`, and `multiline` should be treated as runtime routing states, not as the main product UX a user has to manage manually.
 
 ## Canonical Reading Order
 

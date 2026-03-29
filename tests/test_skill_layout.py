@@ -65,6 +65,15 @@ class SkillLayoutTests(unittest.TestCase):
         self.assertIn("Inferred", text)
         self.assertIn("Recommended", text)
 
+    def test_skill_clarifies_internal_routing_vs_primary_ux(self) -> None:
+        skill_text = (ROOT / "SKILL.md").read_text(encoding="utf-8")
+        runtime_text = (ROOT / "references" / "repl-runtime-contract.md").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("natural-language requests", skill_text)
+        self.assertIn("internal routing states", runtime_text)
+        self.assertIn("should not become the main product mental model", runtime_text)
+
 
 if __name__ == "__main__":
     unittest.main()

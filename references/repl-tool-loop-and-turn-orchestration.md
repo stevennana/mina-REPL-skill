@@ -35,6 +35,8 @@ This should be visible as a state machine, not a hidden recursive loop.
 
 For AI-oriented shells, this loop should be the normal behavior for natural-language turns. The user should not have to manually select shell mode before the AI can use shell tools.
 
+When a shell exposes `chat`, `shell`, or `multiline`, treat them as routing mechanics or power-user controls. They should not become the main operator workflow for ordinary AI turns.
+
 ## 3. Tool registry and schema should be discoverable
 
 OpenCode exposes tool IDs and tool schemas; Codex exposes approval and tool-session interfaces.
