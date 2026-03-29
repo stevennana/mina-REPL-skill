@@ -21,6 +21,9 @@ skill:
     - optional_ssh_shell_bridge
     - command_audit_contract
     - approval_policy_contract
+    - orchestrator_contract
+    - automatic_tool_selection
+    - approval_pause_flow
     - session_lifecycle
     - plan_build_behavior
     - context_engineering_contract
@@ -58,6 +61,8 @@ skill:
     - shell_bridge
     - transcript_export
     - approval_policy_layer
+    - orchestrator_layer
+    - turn_execution_loop
     - session_metadata_layer
     - instruction_layering
     - prompt_composition_layer

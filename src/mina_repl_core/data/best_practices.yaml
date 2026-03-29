@@ -51,6 +51,20 @@ best_practices:
       and should not be overloaded into one hidden state machine.
     categories: [runtime, architecture]
 
+  - id: do-not-promote-internal-modes-to-primary-ux
+    title: Do not promote internal routing modes to the primary UX
+    summary: >
+      Runtime routing states like chat, shell, and multiline may exist internally, but they
+      should not become the main operator mental model for an AI-oriented shell.
+    categories: [runtime, ux]
+
+  - id: natural-language-turns-first
+    title: Keep natural-language turns as the default interaction
+    summary: >
+      Operators should normally ask for work in natural language and let the orchestrator select
+      tools and shell actions automatically, pausing only when policy requires approval.
+    categories: [runtime, ux]
+
   - id: split-short-and-long-term-memory
     title: Separate short-term and long-term memory
     summary: >
@@ -128,6 +142,27 @@ best_practices:
       Model tool-driven turns as a visible loop with model, approval, tool, and completion
       phases instead of hiding them inside a black-box agent run.
     categories: [runtime, operability]
+
+  - id: orchestrator-owns-tool-selection
+    title: Keep tool selection in the orchestrator
+    summary: >
+      Tool invocation should be chosen by the orchestrator from turn intent and state, not by
+      forcing the user to manually switch into a shell-routing mode first.
+    categories: [runtime, architecture]
+
+  - id: slash-commands-are-control-surfaces
+    title: Use slash commands as control surfaces
+    summary: >
+      Slash commands should expose shell controls, explicit overrides, and administrative actions,
+      but they should not replace the main natural-language agent loop.
+    categories: [ux, architecture]
+
+  - id: run-is-an-override
+    title: Keep `/run` as an explicit override
+    summary: >
+      `/run` is useful for manual operator-issued shell commands, but it should remain an escape
+      hatch rather than the normal path for AI-driven tool execution.
+    categories: [ux, runtime]
 
   - id: keep-tool-registry-discoverable
     title: Keep tool schemas and origins discoverable

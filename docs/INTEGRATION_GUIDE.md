@@ -11,10 +11,12 @@ For the deeper contracts, read:
 - `references/repl-mcp-and-tool-registry.md`
 - `references/repl-tool-selection-and-usage.md`
 - `references/repl-tool-loop-and-turn-orchestration.md`
+- `references/repl-orchestrator-guidance.md`
 - `references/repl-plan-execution.md`
 - `references/repl-approval-and-autonomy.md`
 - `references/repl-session-lifecycle.md`
 - `references/repl-plan-build-modes.md`
+- `references/repl-three-surface-ux.md`
 - `references/repl-terminal-ui-best-practices.md`
 
 ## Install

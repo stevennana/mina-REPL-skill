@@ -33,6 +33,7 @@ This file is the short human-readable summary.
 - base-instructions templates
 - memory-consolidation templates
 - MCP codex tool configuration
+- tools orchestrator and orchestrator templates
 
 ## OpenCode design-pattern baseline
 
@@ -46,6 +47,7 @@ This file is the short human-readable summary.
 - `anomalyco/opencode` tool docs and registry files
 - `anomalyco/opencode` plan/build prompt contracts
 - `anomalyco/opencode` session system
+- `anomalyco/opencode` session processor and LLM loop
 
 These are useful for extracting TUI-first, multi-client, session-centric terminal-agent patterns.
 

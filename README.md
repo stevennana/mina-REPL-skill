@@ -126,6 +126,8 @@ python -m unittest discover -s tests -q
 It should not be the place where project-specific business logic, approval policy, or product
 workflows live.
 
+For AI-oriented shells, users should normally type natural-language requests; tool and shell selection should happen through the orchestrator, with approval pauses when required.
+
 ## Canonical Reading Order
 
 If you are using this repo as a skill, read in this order:
@@ -140,20 +142,21 @@ If you are using this repo as a skill, read in this order:
 8. `references/repl-prompt-templates.md`
 9. `references/repl-mcp-and-tool-registry.md`
 10. `references/repl-tool-selection-and-usage.md`
-11. `references/repl-approval-and-autonomy.md`
-12. `references/repl-session-lifecycle.md`
-13. `references/repl-plan-build-modes.md`
-14. `references/repl-architecture.md`
-15. `references/repl-extension-points.md`
-16. `references/repl-terminal-ui-best-practices.md`
-17. `references/repl-verification-and-evaluation.md`
-18. `references/repl-failure-and-recovery.md`
-19. `references/repl-maturity-matrix.md`
-20. `references/repl-source-traceability.md`
-21. `references/repl-subsystem-map-codex.md`
-22. `references/repl-subsystem-map-opencode.md`
-23. `references/repl-source-baseline.md`
-24. `references/repl-design-opencode.md`
+11. `references/repl-orchestrator-guidance.md`
+12. `references/repl-approval-and-autonomy.md`
+13. `references/repl-session-lifecycle.md`
+14. `references/repl-plan-build-modes.md`
+15. `references/repl-architecture.md`
+16. `references/repl-extension-points.md`
+17. `references/repl-terminal-ui-best-practices.md`
+18. `references/repl-verification-and-evaluation.md`
+19. `references/repl-failure-and-recovery.md`
+20. `references/repl-maturity-matrix.md`
+21. `references/repl-source-traceability.md`
+22. `references/repl-subsystem-map-codex.md`
+23. `references/repl-subsystem-map-opencode.md`
+24. `references/repl-source-baseline.md`
+25. `references/repl-design-opencode.md`
 
 ## Example Import
 

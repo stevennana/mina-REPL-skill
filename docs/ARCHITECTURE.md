@@ -44,12 +44,14 @@ For detailed runtime architecture, read:
 - `references/repl-mcp-and-tool-registry.md`
 - `references/repl-tool-selection-and-usage.md`
 - `references/repl-tool-loop-and-turn-orchestration.md`
+- `references/repl-orchestrator-guidance.md`
 - `references/repl-plan-execution.md`
 - `references/repl-approval-and-autonomy.md`
 - `references/repl-session-lifecycle.md`
 - `references/repl-plan-build-modes.md`
 - `references/repl-architecture.md`
 - `references/repl-extension-points.md`
+- `references/repl-three-surface-ux.md`
 - `references/repl-terminal-ui-best-practices.md`
 - `references/repl-verification-and-evaluation.md`
 - `references/repl-failure-and-recovery.md`
@@ -57,4 +59,5 @@ For detailed runtime architecture, read:
 - `references/repl-source-traceability.md`
 - `references/repl-subsystem-map-codex.md`
 - `references/repl-subsystem-map-opencode.md`
+- `references/repl-source-baseline.md`
 - `references/repl-design-opencode.md`

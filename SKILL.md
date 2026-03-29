@@ -11,6 +11,8 @@ tooling shell. This skill is for the runtime layer, not for domain workflows.
 Do not use this skill as the place to store product rules, approval policy, or business logic.
 Those belong in higher-level project skills and repo-specific instructions.
 
+For AI-oriented shells, users should normally type natural-language requests; tool and shell selection should happen through the orchestrator, with approval pauses when required.
+
 ## Read First
 
 Before redesigning or extending a REPL, read these references:

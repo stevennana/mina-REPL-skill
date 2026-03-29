@@ -60,6 +60,33 @@ contracts:
       - name: read_only
         type: boolean
 
+  orchestrator_state:
+    fields:
+      - name: turn_id
+        type: string
+      - name: phase
+        type: string
+        allowed:
+          [planning, awaiting_model, awaiting_tool, awaiting_approval, running_tool, reviewing, completed, interrupted]
+      - name: active_tool
+        type: string
+        optional: true
+      - name: approval_required
+        type: boolean
+      - name: automatic_tool_selection
+        type: boolean
+
+  routing_policy:
+    fields:
+      - name: natural_language_primary
+        type: boolean
+      - name: slash_commands_available
+        type: boolean
+      - name: mode_switch_required_for_tools
+        type: boolean
+      - name: manual_shell_escape_hatch
+        type: boolean
+
   memory_state:
     fields:
       - name: persistent_history_enabled

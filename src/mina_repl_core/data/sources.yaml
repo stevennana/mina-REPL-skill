@@ -311,6 +311,30 @@ sources:
       - Tool outputs should stay typed and reviewable.
       - Tool selection should respect sandboxing and approval behavior.
 
+  - id: openai.codex.orchestrator
+    title: "openai/codex — tools orchestrator"
+    url: "https://github.com/openai/codex/blob/main/codex-rs/core/src/tools/orchestrator.rs"
+    kind: public_project
+    role: orchestrator_reference
+    why_it_matters: >
+      Codex has a dedicated orchestrator that owns approval, sandbox selection, retry semantics,
+      and the execution sequence for tool calls.
+    extracted_guidance:
+      - Centralize approval, retry, and tool execution sequencing in an orchestrator layer.
+      - Do not scatter these concerns across the prompt widget or low-level tool adapters.
+
+  - id: openai.codex.orchestrator_template
+    title: "openai/codex — orchestrator agent template"
+    url: "https://github.com/openai/codex/blob/main/codex-rs/core/templates/agents/orchestrator.md"
+    kind: public_project
+    role: orchestrator_prompt_reference
+    why_it_matters: >
+      Codex ships an explicit orchestrator-facing instruction template, which is useful for
+      understanding how the control layer differs from lower-level runtime concerns.
+    extracted_guidance:
+      - Orchestrator behavior should be explicit in instructions and not only in code.
+      - The control layer should communicate its execution model clearly.
+
   - id: openai.codex_cli.readme_legacy
     title: "openai/codex — codex-cli/README.md"
     url: "https://github.com/openai/codex/blob/main/codex-cli/README.md"
@@ -528,6 +552,66 @@ sources:
     extracted_guidance:
       - Session lifecycle should be explicit once the shell grows beyond a minimal REPL.
       - Fork, summary, review, and permission state belong in structured session metadata.
+
+  - id: anomaly.opencode.session_processor
+    title: "anomalyco/opencode — session processor"
+    url: "https://github.com/anomalyco/opencode/blob/main/packages/opencode/src/session/processor.ts"
+    kind: public_project
+    role: orchestrator_reference
+    why_it_matters: >
+      OpenCode has a dedicated session processor that drives streaming model output, tool calls,
+      permission pauses, compaction, and step completion.
+    extracted_guidance:
+      - Keep turn processing in a dedicated coordinator instead of a prompt widget.
+      - Tool, approval, and retry flow should be visible state transitions.
+
+  - id: anomaly.opencode.session_llm
+    title: "anomalyco/opencode — session llm loop"
+    url: "https://github.com/anomalyco/opencode/blob/main/packages/opencode/src/session/llm.ts"
+    kind: public_project
+    role: llm_turn_loop_reference
+    why_it_matters: >
+      OpenCode's LLM layer shows how system prompts, agent prompts, model config, tools, and
+      prompt overrides are assembled for streaming execution.
+    extracted_guidance:
+      - Natural-language turns should enter a real model/tool loop, not a deterministic router only.
+      - Tool availability and prompt layers should be assembled before the turn starts.
+
+  - id: anomaly.opencode.tool_context
+    title: "anomalyco/opencode — tool context"
+    url: "https://github.com/anomalyco/opencode/blob/main/packages/opencode/src/tool/tool.ts"
+    kind: public_project
+    role: tool_execution_context_reference
+    why_it_matters: >
+      OpenCode passes session, message, agent, approval hooks, and messages into tool execution
+      through a dedicated tool context instead of treating tools as plain shell calls.
+    extracted_guidance:
+      - Tool execution should receive structured turn/session context.
+      - Approval hooks belong inside the tool execution context.
+
+  - id: anomaly.opencode.session_status
+    title: "anomalyco/opencode — session status"
+    url: "https://github.com/anomalyco/opencode/blob/main/packages/opencode/src/session/status.ts"
+    kind: public_project
+    role: operator_state_reference
+    why_it_matters: >
+      OpenCode models session status explicitly, which helps keep operator-visible shell state
+      aligned with the actual turn lifecycle.
+    extracted_guidance:
+      - Busy/retry/idle state should be explicit.
+      - Operator-visible status should come from turn orchestration, not from input mode alone.
+
+  - id: anomaly.opencode.agent_roles
+    title: "anomalyco/opencode — agent roles"
+    url: "https://github.com/anomalyco/opencode/blob/main/packages/opencode/src/agent/agent.ts"
+    kind: public_project
+    role: agent_mode_reference
+    why_it_matters: >
+      OpenCode separates build, plan, and exploration roles, which reinforces that agent mode is
+      distinct from low-level input routing state.
+    extracted_guidance:
+      - Agent modes should be explicit and distinct from runtime input modes.
+      - Planning/execution behavior belongs above low-level prompt routing.
 
   - id: anomaly.opencode.project_spec
     title: "anomalyco/opencode — specs/project.md"

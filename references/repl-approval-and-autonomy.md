@@ -7,7 +7,7 @@ This file defines the recommended approval model for agent shells built on top o
 
 - **Verified:** Codex documents explicit approval modes and config overrides; OpenCode documents permissions and their non-sandbox nature.
 - **Inferred:** approval/autonomy state belongs in the shell’s visible operator surface.
-- **Recommended:** `mina-repl-core` should keep approval policy outside the prompt loop and describe it honestly.
+- **Recommended:** `mina-repl-core` should keep approval policy outside the prompt loop, route it through the orchestrator, and describe it honestly.
 
 ## Core Distinction
 
@@ -47,6 +47,8 @@ If a shell exposes higher-autonomy modes, it should make the environment contrac
 - whether writes are limited to the workspace
 - whether the current directory is tracked by version control
 - whether the shell is actually sandboxed or only approval-gated
+
+Approval prompts should appear when the orchestrator selects a tool or shell action that crosses policy. They should not require the user to manually enter a separate shell mode first.
 
 ## Where Approval Logic Belongs
 
