@@ -22,6 +22,7 @@ Before redesigning or extending a REPL, read these references:
 - `references/repl-memory-and-model-config.md`
 - `references/repl-tool-loop-and-turn-orchestration.md`
 - `references/repl-mcp-and-tool-registry.md`
+- `references/repl-tool-selection-and-usage.md`
 - `references/repl-plan-execution.md`
 - `references/repl-approval-and-autonomy.md`
 - `references/repl-session-lifecycle.md`

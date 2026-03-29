@@ -298,6 +298,19 @@ sources:
       - Tool/session configuration should be explicit and schema-driven.
       - Prompt overrides belong in well-defined fields, not ad hoc text concatenation.
 
+  - id: openai.codex.tools_registry
+    title: "openai/codex — core tool registry/router/spec"
+    url: "https://github.com/openai/codex/blob/main/codex-rs/core/src/tools/registry.rs"
+    kind: public_project
+    role: tool_selection_reference
+    why_it_matters: >
+      Codex models tools with explicit specs, routing, mutability checks, approval-aware
+      orchestration, and model-visible tool sets rather than treating tool calls as raw shell text.
+    extracted_guidance:
+      - Tool routing and tool metadata should be explicit.
+      - Tool outputs should stay typed and reviewable.
+      - Tool selection should respect sandboxing and approval behavior.
+
   - id: openai.codex_cli.readme_legacy
     title: "openai/codex — codex-cli/README.md"
     url: "https://github.com/openai/codex/blob/main/codex-cli/README.md"
@@ -478,6 +491,19 @@ sources:
     extracted_guidance:
       - UI changes should carry visual proof when possible.
       - Logic changes should document reproducible verification steps.
+
+  - id: anomaly.opencode.tool_registry
+    title: "anomalyco/opencode — tool registry and tool docs"
+    url: "https://github.com/anomalyco/opencode/blob/main/packages/opencode/src/tool/registry.ts"
+    kind: public_project
+    role: tool_usage_reference
+    why_it_matters: >
+      OpenCode ships a concrete tool registry plus per-tool guidance files that explicitly
+      recommend when to use read, glob, grep, task, bash, and other tools.
+    extracted_guidance:
+      - Prefer specialized file/search tools over generic shell commands.
+      - Keep per-tool guidance concrete enough to shape model behavior.
+      - Reserve broad task/subagent tools for open-ended multi-step work.
 
   - id: anomaly.opencode.build_switch
     title: "anomalyco/opencode — build mode switch prompt"

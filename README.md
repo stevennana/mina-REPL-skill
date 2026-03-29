@@ -139,20 +139,21 @@ If you are using this repo as a skill, read in this order:
 7. `references/repl-plan-execution.md`
 8. `references/repl-prompt-templates.md`
 9. `references/repl-mcp-and-tool-registry.md`
-10. `references/repl-approval-and-autonomy.md`
-11. `references/repl-session-lifecycle.md`
-12. `references/repl-plan-build-modes.md`
-13. `references/repl-architecture.md`
-14. `references/repl-extension-points.md`
-15. `references/repl-terminal-ui-best-practices.md`
-16. `references/repl-verification-and-evaluation.md`
-17. `references/repl-failure-and-recovery.md`
-18. `references/repl-maturity-matrix.md`
-19. `references/repl-source-traceability.md`
-20. `references/repl-subsystem-map-codex.md`
-21. `references/repl-subsystem-map-opencode.md`
-22. `references/repl-source-baseline.md`
-23. `references/repl-design-opencode.md`
+10. `references/repl-tool-selection-and-usage.md`
+11. `references/repl-approval-and-autonomy.md`
+12. `references/repl-session-lifecycle.md`
+13. `references/repl-plan-build-modes.md`
+14. `references/repl-architecture.md`
+15. `references/repl-extension-points.md`
+16. `references/repl-terminal-ui-best-practices.md`
+17. `references/repl-verification-and-evaluation.md`
+18. `references/repl-failure-and-recovery.md`
+19. `references/repl-maturity-matrix.md`
+20. `references/repl-source-traceability.md`
+21. `references/repl-subsystem-map-codex.md`
+22. `references/repl-subsystem-map-opencode.md`
+23. `references/repl-source-baseline.md`
+24. `references/repl-design-opencode.md`
 
 ## Example Import
 

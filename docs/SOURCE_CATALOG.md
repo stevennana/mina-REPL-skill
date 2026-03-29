@@ -43,6 +43,7 @@ This file is the short human-readable summary.
 - `anomalyco/opencode` session prompt contracts
 - `anomalyco/opencode` SDK OpenAPI session and permission schema
 - `anomalyco/opencode` verification expectations from `CONTRIBUTING.md`
+- `anomalyco/opencode` tool docs and registry files
 - `anomalyco/opencode` plan/build prompt contracts
 - `anomalyco/opencode` session system
 

@@ -10,6 +10,7 @@ Read these first for the actual REPL best-practice material:
 - `references/repl-memory-and-model-config.md`
 - `references/repl-prompt-templates.md`
 - `references/repl-mcp-and-tool-registry.md`
+- `references/repl-tool-selection-and-usage.md`
 - `references/repl-tool-loop-and-turn-orchestration.md`
 - `references/repl-plan-execution.md`
 - `references/repl-approval-and-autonomy.md`

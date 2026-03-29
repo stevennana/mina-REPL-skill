@@ -32,6 +32,7 @@ class SkillLayoutTests(unittest.TestCase):
             "repl-memory-and-model-config.md",
             "repl-prompt-templates.md",
             "repl-mcp-and-tool-registry.md",
+            "repl-tool-selection-and-usage.md",
             "repl-tool-loop-and-turn-orchestration.md",
             "repl-plan-execution.md",
             "repl-approval-and-autonomy.md",

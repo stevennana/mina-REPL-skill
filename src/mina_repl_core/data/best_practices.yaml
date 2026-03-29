@@ -136,6 +136,41 @@ best_practices:
       so tool use is inspectable by both operators and downstream agent logic.
     categories: [tools, operability]
 
+  - id: choose-the-cheapest-sufficient-tool
+    title: Prefer the cheapest sufficient tool
+    summary: >
+      Prefer specialized tools like glob, grep, and read before escalating to broad shell
+      commands or open-ended subagent/task tools. Use the narrowest tool that answers the question.
+    categories: [tools, efficiency]
+
+  - id: use-glob-grep-read-in-order
+    title: Narrow with glob and grep before reading
+    summary: >
+      For codebase exploration, narrow candidate files with glob, search content with grep,
+      and only then read the most relevant files. This keeps context smaller and searches faster.
+    categories: [tools, efficiency]
+
+  - id: avoid-tiny-repeated-file-slices
+    title: Avoid tiny repeated reads
+    summary: >
+      Prefer larger windows and intentional offsets over many tiny file reads that create
+      context churn without materially improving understanding.
+    categories: [tools, efficiency]
+
+  - id: reserve-task-tools-for-open-ended-work
+    title: Use task/subagent tools for open-ended work only
+    summary: >
+      When the target is already a small known set of files, use direct search and read tools.
+      Reserve task/subagent tools for genuinely multi-step or exploratory work.
+    categories: [tools, operability]
+
+  - id: parallelize-independent-tool-calls
+    title: Parallelize independent tool calls
+    summary: >
+      Run independent reads, searches, and status commands in parallel when their outputs do
+      not depend on one another, and keep sequential ordering only when one step informs the next.
+    categories: [tools, efficiency]
+
   - id: use-compact-prompts-intentionally
     title: Compact intentionally instead of truncating blindly
     summary: >
