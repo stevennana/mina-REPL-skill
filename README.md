@@ -130,6 +130,7 @@ For AI-oriented shells, users should normally type natural-language requests; to
 
 That means `chat`, `shell`, and `multiline` should be treated as runtime routing states, not as the main product UX a user has to manage manually.
 It also means the shell should inspect the current workspace itself when the next safe read-only discovery step is obvious, instead of asking the user to type `pwd`, `ls`, or similar commands first.
+It should also understand the project root and root metadata early, using tree and manifest inspection before jumping into arbitrary deep source files.
 
 ## Canonical Reading Order
 
@@ -141,27 +142,28 @@ If you are using this repo as a skill, read in this order:
 4. `references/repl-prompt-composition.md`
 5. `references/repl-memory-and-model-config.md`
 6. `references/repl-discovery-and-workspace-awareness.md`
-7. `references/repl-tool-loop-and-turn-orchestration.md`
-8. `references/repl-plan-execution.md`
-9. `references/repl-prompt-templates.md`
-10. `references/repl-mcp-and-tool-registry.md`
-11. `references/repl-tool-selection-and-usage.md`
-12. `references/repl-orchestrator-guidance.md`
-13. `references/repl-approval-and-autonomy.md`
-14. `references/repl-session-lifecycle.md`
-15. `references/repl-plan-build-modes.md`
-16. `references/repl-architecture.md`
-17. `references/repl-extension-points.md`
-18. `references/repl-terminal-ui-best-practices.md`
-19. `references/repl-llm-logging-and-observability.md`
-20. `references/repl-verification-and-evaluation.md`
-21. `references/repl-failure-and-recovery.md`
-22. `references/repl-maturity-matrix.md`
-23. `references/repl-source-traceability.md`
-24. `references/repl-subsystem-map-codex.md`
-25. `references/repl-subsystem-map-opencode.md`
-26. `references/repl-source-baseline.md`
-27. `references/repl-design-opencode.md`
+7. `references/repl-project-root-and-repo-scouting.md`
+8. `references/repl-tool-loop-and-turn-orchestration.md`
+9. `references/repl-plan-execution.md`
+10. `references/repl-prompt-templates.md`
+11. `references/repl-mcp-and-tool-registry.md`
+12. `references/repl-tool-selection-and-usage.md`
+13. `references/repl-orchestrator-guidance.md`
+14. `references/repl-approval-and-autonomy.md`
+15. `references/repl-session-lifecycle.md`
+16. `references/repl-plan-build-modes.md`
+17. `references/repl-architecture.md`
+18. `references/repl-extension-points.md`
+19. `references/repl-terminal-ui-best-practices.md`
+20. `references/repl-llm-logging-and-observability.md`
+21. `references/repl-verification-and-evaluation.md`
+22. `references/repl-failure-and-recovery.md`
+23. `references/repl-maturity-matrix.md`
+24. `references/repl-source-traceability.md`
+25. `references/repl-subsystem-map-codex.md`
+26. `references/repl-subsystem-map-opencode.md`
+27. `references/repl-source-baseline.md`
+28. `references/repl-design-opencode.md`
 
 ## Example Import
 

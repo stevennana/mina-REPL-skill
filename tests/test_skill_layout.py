@@ -31,6 +31,7 @@ class SkillLayoutTests(unittest.TestCase):
             "repl-prompt-composition.md",
             "repl-memory-and-model-config.md",
             "repl-discovery-and-workspace-awareness.md",
+            "repl-project-root-and-repo-scouting.md",
             "repl-prompt-templates.md",
             "repl-mcp-and-tool-registry.md",
             "repl-tool-selection-and-usage.md",
@@ -74,11 +75,16 @@ class SkillLayoutTests(unittest.TestCase):
         discovery_text = (
             ROOT / "references" / "repl-discovery-and-workspace-awareness.md"
         ).read_text(encoding="utf-8")
+        scouting_text = (
+            ROOT / "references" / "repl-project-root-and-repo-scouting.md"
+        ).read_text(encoding="utf-8")
         self.assertIn("natural-language requests", skill_text)
         self.assertIn("internal routing states", runtime_text)
         self.assertIn("should not become the main product mental model", runtime_text)
         self.assertIn("inspect the current workspace itself", skill_text)
         self.assertIn("Discover before asking the user", discovery_text)
+        self.assertIn("project root", scouting_text)
+        self.assertIn("root metadata", scouting_text)
 
 
 if __name__ == "__main__":

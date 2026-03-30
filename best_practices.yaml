@@ -86,6 +86,20 @@ best_practices:
       and what next safe action it is taking or recommending.
     categories: [runtime, ux]
 
+  - id: map-project-root-before-deep-reads
+    title: Map the project root before deep reads
+    summary: >
+      Before reading arbitrary deep source files, identify the project root, top-level tree,
+      and key root metadata so later reasoning stays grounded in the actual repo shape.
+    categories: [context, tools]
+
+  - id: inspect-root-metadata-as-meaning-anchor
+    title: Inspect root metadata as a meaning anchor
+    summary: >
+      Read high-value root files like README, AGENTS, and build manifests early because they
+      usually explain the project's meaning, stack, and workflows better than random source files.
+    categories: [context, documentation]
+
   - id: split-short-and-long-term-memory
     title: Separate short-term and long-term memory
     summary: >
@@ -194,6 +208,20 @@ best_practices:
       `pwd`, `ls`, or similar commands when the orchestrator could have run that step itself.
     categories: [ux, runtime]
 
+  - id: prefer-non-interactive-repo-scouting
+    title: Prefer non-interactive repo scouting
+    summary: >
+      Prefer transcriptable discovery like list, glob, grep, read, `rg --files`, `find`,
+      `sed -n`, and focused `awk` over interactive pagers when the shell is scouting a repo.
+    categories: [tools, operability]
+
+  - id: avoid-interactive-pagers-in-agent-loop
+    title: Avoid interactive pagers in the agent loop
+    summary: >
+      Tools like `less` may help a human operator, but they are a poor default for autonomous
+      agent reasoning because they are harder to automate, transcript, and replay.
+    categories: [tools, operability]
+
   - id: keep-tool-registry-discoverable
     title: Keep tool schemas and origins discoverable
     summary: >
@@ -214,6 +242,13 @@ best_practices:
       For local workspace awareness, reuse known context first, then inspect cheap metadata or
       directory contents, then narrow with search and read tools before broad shell execution.
     categories: [tools, efficiency]
+
+  - id: infer-stack-from-manifests-before-symbols
+    title: Infer stack from manifests before symbols
+    summary: >
+      Read root manifests and config files before symbol-hunting so the shell does not guess the
+      language, package manager, build flow, or repo conventions from incomplete evidence.
+    categories: [context, tools]
 
   - id: use-glob-grep-read-in-order
     title: Narrow with glob and grep before reading

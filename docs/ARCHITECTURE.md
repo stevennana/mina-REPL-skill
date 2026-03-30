@@ -41,6 +41,7 @@ For detailed runtime architecture, read:
 - `references/repl-prompt-composition.md`
 - `references/repl-memory-and-model-config.md`
 - `references/repl-discovery-and-workspace-awareness.md`
+- `references/repl-project-root-and-repo-scouting.md`
 - `references/repl-prompt-templates.md`
 - `references/repl-mcp-and-tool-registry.md`
 - `references/repl-tool-selection-and-usage.md`

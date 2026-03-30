@@ -46,6 +46,9 @@ This file is the short human-readable summary.
 - `anomalyco/opencode` `specs/project.md`
 - `anomalyco/opencode` session prompt contracts
 - `anomalyco/opencode` `read`, `grep`, and `task` tool docs
+- `anomalyco/opencode` `glob` tool doc
+- `anomalyco/opencode` project `config.mdx`
+- `anomalyco/opencode` built-in `tools.mdx`
 - `anomalyco/opencode` SDK OpenAPI session and permission schema
 - `anomalyco/opencode` verification expectations from `CONTRIBUTING.md`
 - `anomalyco/opencode` tool docs and registry files

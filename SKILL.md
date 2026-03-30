@@ -24,6 +24,7 @@ Before redesigning or extending a REPL, read these references:
 - `references/repl-prompt-templates.md`
 - `references/repl-memory-and-model-config.md`
 - `references/repl-discovery-and-workspace-awareness.md`
+- `references/repl-project-root-and-repo-scouting.md`
 - `references/repl-tool-loop-and-turn-orchestration.md`
 - `references/repl-mcp-and-tool-registry.md`
 - `references/repl-tool-selection-and-usage.md`
@@ -51,6 +52,7 @@ Before redesigning or extending a REPL, read these references:
 - the project needs a multi-turn prompt lifecycle
 - the runtime needs clear internal routing for natural-language turns, manual shell overrides, and buffered multiline input
 - the shell needs startup workspace context and safe autonomous discovery to be first-class
+- the shell needs a reliable project-root and metadata scouting phase before deep file reasoning
 - planning and execution behavior need to stay explicit
 - approval and autonomy policy need a clear operator contract
 - context engineering and prompt composition need a clear operator contract
@@ -95,6 +97,7 @@ Higher-level project code should own:
    - instruction layering and prompt-composition semantics
    - reusable prompt templates
    - memory and model-selection semantics
+   - project-root and repo-metadata scouting semantics
    - workspace-awareness and discovery semantics
    - tool loop and turn state semantics
    - evaluation, review, and recovery semantics
@@ -117,6 +120,7 @@ Higher-level project code should own:
 - Keep short-term and long-term memory policies explicit.
 - Keep provider/model configuration explicit and operator-visible.
 - Treat startup cwd and explicit target overrides as durable workspace context.
+- Scout the project root and root metadata before drawing conclusions from deep source files.
 - Prefer orchestrator-led safe discovery before asking the user to run obvious read-only shell commands.
 - Expose tool-loop and turn state instead of hiding it behind a black-box agent run.
 - Keep tool schemas and tool origins discoverable.

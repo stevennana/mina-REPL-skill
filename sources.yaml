@@ -237,6 +237,7 @@ sources:
       - Keep instruction precedence explicit.
       - Separate responsiveness and planning behavior from task-specific user content.
       - Treat AGENTS/project-doc scope as part of prompt composition, not an afterthought.
+      - Ground work in the discovered repo context before asking the user questions that local inspection can answer.
 
   - id: openai.codex.base_instructions
     title: "openai/codex — base instructions template"
@@ -529,6 +530,33 @@ sources:
       - Keep prompt behavior explicit in dedicated prompt-contract layers.
       - Separate default behavior from plan/build overrides.
       - Prompt composition should encode operator experience, not just tool permissions.
+      - Use tool-based repo inspection instead of handing back shell snippets when local discovery is obvious.
+
+  - id: anomaly.opencode.config_docs
+    title: "anomalyco/opencode — config docs"
+    url: "https://github.com/anomalyco/opencode/blob/main/packages/web/src/content/docs/config.mdx"
+    kind: public_project
+    role: project_root_config_reference
+    why_it_matters: >
+      OpenCode's config docs explicitly describe project-root config precedence, nearest Git-root
+      lookup, and config directories that shape how the agent should interpret the workspace.
+    extracted_guidance:
+      - Treat project-root config as first-class workspace metadata.
+      - Traverse from the current directory toward the nearest Git root when locating project config.
+      - Read root config before assuming model, tool, or permission behavior.
+
+  - id: anomaly.opencode.tools_docs
+    title: "anomalyco/opencode — tools docs"
+    url: "https://github.com/anomalyco/opencode/blob/main/packages/web/src/content/docs/tools.mdx"
+    kind: public_project
+    role: built_in_tools_reference
+    why_it_matters: >
+      OpenCode documents list, glob, read, grep, and bash as distinct built-in tools, which is
+      useful for codifying a repo-scouting ladder instead of flattening everything into shell use.
+    extracted_guidance:
+      - Use list, glob, read, and grep as separate scouting tools with different costs.
+      - Prefer explicit tree and metadata inspection before broad bash use.
+      - Keep built-in tool roles visible enough that the model can choose them deliberately.
 
   - id: anomaly.opencode.verification_guidance
     title: "anomalyco/opencode — CONTRIBUTING.md verification expectations"
@@ -580,6 +608,19 @@ sources:
       - Use grep for fast content search across large codebases or workspaces.
       - Keep search narrow before escalating to bash.
       - Treat open-ended multi-round search as a different class of work from one targeted grep.
+
+  - id: anomaly.opencode.tool_glob
+    title: "anomalyco/opencode — glob tool doc"
+    url: "https://github.com/anomalyco/opencode/blob/main/packages/opencode/src/tool/glob.txt"
+    kind: public_project
+    role: glob_tool_reference
+    why_it_matters: >
+      OpenCode's glob tool doc reinforces fast pattern-based file discovery as an early scouting
+      step before broader search or shell execution.
+    extracted_guidance:
+      - Use glob to understand the top-level file tree and likely metadata files quickly.
+      - Batch potentially useful searches together when repo scouting.
+      - Reserve broader exploration for cases where a few targeted glob patterns are insufficient.
 
   - id: anomaly.opencode.tool_task
     title: "anomalyco/opencode — task tool doc"

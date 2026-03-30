@@ -36,6 +36,7 @@ This keeps tool usage fast and keeps context smaller.
 For workspace discovery, this same rule means:
 
 - inspect cheap directory or metadata context first
+- inspect the top-level tree and root metadata before deep source reads
 - then narrow with `glob`, `grep`, and `read`
 - only then escalate to broader shell execution
 
@@ -107,3 +108,4 @@ For file-oriented reasoning, the normal order should be:
 5. shell only if you need execution or a capability not covered by the specialized tools
 
 For AI-oriented shells, prefer discovery by action over discovery by instruction.
+Prefer repo scouting by root tree and metadata before symbol-hunting in deep files.
