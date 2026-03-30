@@ -12,6 +12,7 @@ Do not use this skill as the place to store product rules, approval policy, or b
 Those belong in higher-level project skills and repo-specific instructions.
 
 For AI-oriented shells, users should normally type natural-language requests; tool and shell selection should happen through the orchestrator, with approval pauses when required.
+When the next safe read-only discovery step is obvious, the orchestrator should inspect the current workspace itself instead of asking the user to type shell commands first.
 
 ## Read First
 
@@ -22,6 +23,7 @@ Before redesigning or extending a REPL, read these references:
 - `references/repl-prompt-composition.md`
 - `references/repl-prompt-templates.md`
 - `references/repl-memory-and-model-config.md`
+- `references/repl-discovery-and-workspace-awareness.md`
 - `references/repl-tool-loop-and-turn-orchestration.md`
 - `references/repl-mcp-and-tool-registry.md`
 - `references/repl-tool-selection-and-usage.md`
@@ -48,6 +50,7 @@ Before redesigning or extending a REPL, read these references:
 
 - the project needs a multi-turn prompt lifecycle
 - the runtime needs clear internal routing for natural-language turns, manual shell overrides, and buffered multiline input
+- the shell needs startup workspace context and safe autonomous discovery to be first-class
 - planning and execution behavior need to stay explicit
 - approval and autonomy policy need a clear operator contract
 - context engineering and prompt composition need a clear operator contract
@@ -65,6 +68,7 @@ Before redesigning or extending a REPL, read these references:
 `mina-repl-core` should own:
 
 - prompt lifecycle and internal routing state
+- startup workspace capture and workspace-context handoff
 - slash-command dispatch
 - transcript and history persistence
 - shell execution through an explicit bridge
@@ -91,6 +95,7 @@ Higher-level project code should own:
    - instruction layering and prompt-composition semantics
    - reusable prompt templates
    - memory and model-selection semantics
+   - workspace-awareness and discovery semantics
    - tool loop and turn state semantics
    - evaluation, review, and recovery semantics
    - slash commands
@@ -111,6 +116,8 @@ Higher-level project code should own:
 - Keep reusable prompt skeletons for base, developer, compact, plan, and build behavior.
 - Keep short-term and long-term memory policies explicit.
 - Keep provider/model configuration explicit and operator-visible.
+- Treat startup cwd and explicit target overrides as durable workspace context.
+- Prefer orchestrator-led safe discovery before asking the user to run obvious read-only shell commands.
 - Expose tool-loop and turn state instead of hiding it behind a black-box agent run.
 - Keep tool schemas and tool origins discoverable.
 - Persist both history and transcripts so the runtime is usable and reproducible.

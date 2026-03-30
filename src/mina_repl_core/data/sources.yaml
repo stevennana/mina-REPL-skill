@@ -223,6 +223,7 @@ sources:
       - Keep global and project-specific instructions separate from the base runtime skill.
       - Update docs when APIs or operator-facing behavior change.
       - Treat repo guidance as a layer above the runtime substrate.
+      - Inspect the repo and current workspace before asking the user for facts that can be discovered locally.
 
   - id: openai.codex.prompt_contract
     title: "openai/codex — codex-rs/core/prompt.md"
@@ -322,6 +323,7 @@ sources:
     extracted_guidance:
       - Centralize approval, retry, and tool execution sequencing in an orchestrator layer.
       - Do not scatter these concerns across the prompt widget or low-level tool adapters.
+      - Let the orchestrator choose the next safe discovery action instead of teaching manual shell commands as the normal path.
 
   - id: openai.codex.orchestrator_template
     title: "openai/codex — orchestrator agent template"
@@ -552,6 +554,45 @@ sources:
       - Prefer specialized file/search tools over generic shell commands.
       - Keep per-tool guidance concrete enough to shape model behavior.
       - Reserve broad task/subagent tools for open-ended multi-step work.
+
+  - id: anomaly.opencode.tool_read
+    title: "anomalyco/opencode — read tool doc"
+    url: "https://github.com/anomalyco/opencode/blob/main/packages/opencode/src/tool/read.txt"
+    kind: public_project
+    role: read_tool_reference
+    why_it_matters: >
+      OpenCode's read tool doc is explicit about reading files or directories directly,
+      using grep first on large targets, and avoiding tiny repeated slices.
+    extracted_guidance:
+      - Read files or directories directly when the path is already known.
+      - Avoid tiny repeated slices when a larger window would answer the question more efficiently.
+      - Use grep or glob before repeated reads when the target is still broad.
+
+  - id: anomaly.opencode.tool_grep
+    title: "anomalyco/opencode — grep tool doc"
+    url: "https://github.com/anomalyco/opencode/blob/main/packages/opencode/src/tool/grep.txt"
+    kind: public_project
+    role: grep_tool_reference
+    why_it_matters: >
+      OpenCode's grep tool doc reinforces fast content search as the right next step before
+      broader shell use during discovery.
+    extracted_guidance:
+      - Use grep for fast content search across large codebases or workspaces.
+      - Keep search narrow before escalating to bash.
+      - Treat open-ended multi-round search as a different class of work from one targeted grep.
+
+  - id: anomaly.opencode.tool_task
+    title: "anomalyco/opencode — task tool doc"
+    url: "https://github.com/anomalyco/opencode/blob/main/packages/opencode/src/tool/task.txt"
+    kind: public_project
+    role: task_tool_reference
+    why_it_matters: >
+      OpenCode's task tool doc clearly separates direct file lookup from open-ended autonomous
+      exploration and warns against using subagents for small known targets.
+    extracted_guidance:
+      - Use direct read, glob, and grep tools when the target is already small or known.
+      - Reserve task or subagent delegation for genuinely open-ended exploration.
+      - Do not pay orchestration cost for a question that one direct discovery step can answer.
 
   - id: anomaly.opencode.build_switch
     title: "anomalyco/opencode — build mode switch prompt"

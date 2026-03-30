@@ -7,6 +7,7 @@ For the deeper contracts, read:
 - `references/repl-context-engineering.md`
 - `references/repl-prompt-composition.md`
 - `references/repl-memory-and-model-config.md`
+- `references/repl-discovery-and-workspace-awareness.md`
 - `references/repl-prompt-templates.md`
 - `references/repl-mcp-and-tool-registry.md`
 - `references/repl-tool-selection-and-usage.md`
@@ -55,6 +56,7 @@ session = ReplCoreSession(
 Keep domain logic and project-specific policy above the runtime layer.
 Use `ReplCoreSession` as the adapter, not as the application brain.
 For AI-oriented shells, treat `chat`, `shell`, and `multiline` as internal routing mechanics or advanced controls, not as the main workflow users must manage manually.
+When the next safe read-only discovery step is obvious, let the orchestrator inspect the current workspace instead of instructing the user to run `pwd`, `ls`, or similar commands first.
 
 ## Canonical asset files
 

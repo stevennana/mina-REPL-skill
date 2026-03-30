@@ -20,6 +20,9 @@ Use the narrowest tool that answers the question:
 - open-ended multi-step exploration: `task`
 - raw shell commands: only when a specialized tool is not enough or when execution is itself the task
 
+When the question is about the current workspace, first reuse any workspace context the shell
+already knows before running new discovery commands.
+
 ## 2. Use `glob` and `grep` before broad file reads
 
 For codebase exploration:
@@ -29,6 +32,12 @@ For codebase exploration:
 - only then `read` the most relevant files
 
 This keeps tool usage fast and keeps context smaller.
+
+For workspace discovery, this same rule means:
+
+- inspect cheap directory or metadata context first
+- then narrow with `glob`, `grep`, and `read`
+- only then escalate to broader shell execution
 
 ## 3. Avoid tiny repeated reads
 
@@ -75,6 +84,9 @@ In a richer shell:
 - shell commands may cross approval boundaries
 - tool selection should account for whether the operator is in suggest, auto-edit, or full-auto style modes
 
+If the next safe read-only step is obvious, the shell should run it instead of replying with a
+copy-paste command for the user.
+
 ## 7. Keep tool outputs reviewable
 
 Tool outputs should remain structured enough to support:
@@ -93,3 +105,5 @@ For file-oriented reasoning, the normal order should be:
 3. `read`
 4. `task` if the search remains open-ended
 5. shell only if you need execution or a capability not covered by the specialized tools
+
+For AI-oriented shells, prefer discovery by action over discovery by instruction.

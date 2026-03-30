@@ -34,6 +34,8 @@ A useful turn often follows this pattern:
 This should be visible as a state machine, not a hidden recursive loop.
 
 For AI-oriented shells, this loop should be the normal behavior for natural-language turns. The user should not have to manually select shell mode before the AI can use shell tools.
+When a turn implies local inspection of "here", "this project", or obvious local evidence, safe
+read-only discovery should be part of that same loop instead of a separate manual shell tutorial.
 
 When a shell exposes `chat`, `shell`, or `multiline`, treat them as routing mechanics or power-user controls. They should not become the main operator workflow for ordinary AI turns.
 

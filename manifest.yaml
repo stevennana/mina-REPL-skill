@@ -27,6 +27,8 @@ skill:
     - session_lifecycle
     - plan_build_behavior
     - context_engineering_contract
+    - workspace_awareness_contract
+    - autonomous_discovery_policy
     - prompt_composition_contract
     - prompt_template_contract
     - memory_policy_contract
@@ -65,6 +67,8 @@ skill:
     - orchestrator_layer
     - turn_execution_loop
     - session_metadata_layer
+    - workspace_context_layer
+    - discovery_policy_layer
     - instruction_layering
     - prompt_composition_layer
     - prompt_template_layer

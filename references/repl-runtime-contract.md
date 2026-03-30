@@ -20,6 +20,7 @@ chat, shell, and drafting into one ambiguous stream.
 For AI-oriented shells, the primary operator model should be:
 
 - natural-language turns
+- workspace-aware discovery when local context is relevant
 - approval pauses when policy requires them
 - visible plan, tool, review, and session state
 
@@ -34,6 +35,7 @@ If a downstream shell teaches users to switch `/mode` before the AI can use tool
 
 - User input is routed into the assistant/orchestrator path.
 - Assistant output is rendered as assistant content, not shell output.
+- Safe read-only discovery may still happen inside the turn when the orchestrator selects it.
 
 ### `shell`
 
@@ -74,6 +76,7 @@ For an AI-oriented shell:
 - `/run` should be the explicit operator override for manual shell commands
 - normal tool and shell selection should happen through the orchestrator
 - the shell should not teach `/mode` as a prerequisite for AI-driven tool use
+- the shell should not teach `/run pwd`, `/run ls`, or similar commands as the normal path for obvious workspace discovery
 
 If a project adds commands, those commands should preserve the same separation between routing, execution, rendering, and transcript recording.
 
@@ -93,6 +96,10 @@ If a project adds commands, those commands should preserve the same separation b
 
 `mina-repl-core` intentionally stops at the shell bridge boundary.
 It does not implement a full approval or sandbox policy on its own.
+
+If a project captures startup cwd or another default workspace target, that context should be
+made visible to the orchestrator before the first turn so phrases like "here" or "this project"
+resolve without manual restatement.
 
 If a project needs command approvals, restricted execution, or policy enforcement:
 

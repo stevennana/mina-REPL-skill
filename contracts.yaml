@@ -87,6 +87,32 @@ contracts:
       - name: manual_shell_escape_hatch
         type: boolean
 
+  workspace_context:
+    fields:
+      - name: startup_working_directory
+        type: boolean
+      - name: default_investigation_target
+        type: boolean
+      - name: explicit_target_override
+        type: boolean
+      - name: context_visible_to_operator
+        type: boolean
+
+  discovery_policy:
+    fields:
+      - name: safe_read_only_auto_run
+        type: boolean
+      - name: discovery_before_user_command_request
+        type: boolean
+      - name: prefer_known_context_before_shell
+        type: boolean
+      - name: prefer_specialized_read_tools_before_broad_shell
+        type: boolean
+      - name: ask_only_on_ambiguity_or_approval
+        type: boolean
+      - name: manual_run_is_override
+        type: boolean
+
   memory_state:
     fields:
       - name: persistent_history_enabled

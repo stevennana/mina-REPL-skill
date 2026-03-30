@@ -8,6 +8,7 @@ Read these first for the actual REPL best-practice material:
 - `references/repl-context-engineering.md`
 - `references/repl-prompt-composition.md`
 - `references/repl-memory-and-model-config.md`
+- `references/repl-discovery-and-workspace-awareness.md`
 - `references/repl-prompt-templates.md`
 - `references/repl-mcp-and-tool-registry.md`
 - `references/repl-tool-selection-and-usage.md`
@@ -34,6 +35,7 @@ Use this `docs/` copy as a short contributor-facing summary only.
 
 - Keep the skill entrypoint concise and procedural.
 - Keep runtime routing explicit internally, but keep natural-language turns as the primary AI-shell UX.
+- Treat startup cwd and safe autonomous discovery as first-class shell behavior.
 - Treat shell execution as a separate tool channel.
 - Persist both history and transcripts.
 - Keep the runtime separate from product-specific policy and workflows.

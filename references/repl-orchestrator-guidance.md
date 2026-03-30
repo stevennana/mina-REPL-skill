@@ -14,6 +14,7 @@ The orchestrator is responsible for:
 
 - starting a user turn
 - assembling model-visible context
+- reusing startup workspace context and explicit target overrides
 - selecting the model call path
 - interpreting tool decisions
 - pausing for approval when policy requires it
@@ -47,6 +48,7 @@ For an AI-oriented shell, the normal turn loop is:
 7. model either continues or completes the turn
 
 This is the default shell behavior. The operator should not need to manually enter shell mode for the AI to use shell tools.
+If the obvious next step is safe read-only workspace discovery, the orchestrator should run it instead of asking the operator to type `pwd`, `ls`, or similar commands.
 
 ## Operator-Visible Orchestrator State
 

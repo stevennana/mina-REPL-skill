@@ -20,6 +20,7 @@ It should include:
 - tool activity and progress
 - plan/todo progress when relevant
 - approvals and review state when relevant
+- workspace discovery activity and resolved local targets when relevant
 - compact summaries or recovery markers when they affect session understanding
 
 Design rules:
@@ -93,6 +94,9 @@ The footer surface should answer:
 
 - what should I know right now
 - what can I do next quickly
+
+When the shell auto-runs safe discovery, transcript and footer should make it obvious that the
+agent inspected the workspace on the user's behalf rather than merely suggested a command.
 
 ## 4. Surface Ownership Rule
 

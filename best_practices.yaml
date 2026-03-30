@@ -65,6 +65,27 @@ best_practices:
       tools and shell actions automatically, pausing only when policy requires approval.
     categories: [runtime, ux]
 
+  - id: treat-startup-cwd-as-default-context
+    title: Treat startup cwd as default workspace context
+    summary: >
+      Unless the user names another target, the shell should treat the startup working directory
+      as the default workspace or investigation context and make it visible to the orchestrator.
+    categories: [runtime, context]
+
+  - id: discover-before-asking-the-user
+    title: Discover before asking the user
+    summary: >
+      If the next safe read-only step is obvious, the orchestrator should inspect the workspace
+      itself before asking the operator to type shell commands like `pwd` or `ls`.
+    categories: [runtime, ux]
+
+  - id: summarize-observed-facts-before-next-step
+    title: Summarize observed facts before the next step
+    summary: >
+      After a discovery step, the shell should tell the operator what it observed, what it inferred,
+      and what next safe action it is taking or recommending.
+    categories: [runtime, ux]
+
   - id: split-short-and-long-term-memory
     title: Separate short-term and long-term memory
     summary: >
@@ -166,6 +187,13 @@ best_practices:
       hatch rather than the normal path for AI-driven tool execution.
     categories: [ux, runtime]
 
+  - id: do-not-tutor-obvious-shell-commands
+    title: Do not tutor obvious shell commands
+    summary: >
+      An AI shell should not answer obvious safe discovery needs by telling the user to type
+      `pwd`, `ls`, or similar commands when the orchestrator could have run that step itself.
+    categories: [ux, runtime]
+
   - id: keep-tool-registry-discoverable
     title: Keep tool schemas and origins discoverable
     summary: >
@@ -178,6 +206,13 @@ best_practices:
     summary: >
       Prefer specialized tools like glob, grep, and read before escalating to broad shell
       commands or open-ended subagent/task tools. Use the narrowest tool that answers the question.
+    categories: [tools, efficiency]
+
+  - id: prefer-cheapest-safe-read-only-discovery
+    title: Prefer the cheapest safe read-only discovery step
+    summary: >
+      For local workspace awareness, reuse known context first, then inspect cheap metadata or
+      directory contents, then narrow with search and read tools before broad shell execution.
     categories: [tools, efficiency]
 
   - id: use-glob-grep-read-in-order
@@ -207,6 +242,13 @@ best_practices:
       Run independent reads, searches, and status commands in parallel when their outputs do
       not depend on one another, and keep sequential ordering only when one step informs the next.
     categories: [tools, efficiency]
+
+  - id: ask-only-on-ambiguity-or-approval
+    title: Ask only on ambiguity or approval boundaries
+    summary: >
+      Interrupt the operator only when multiple plausible targets exist, approval is required,
+      or the evidence remains insufficient after safe discovery.
+    categories: [ux, safety]
 
   - id: use-compact-prompts-intentionally
     title: Compact intentionally instead of truncating blindly

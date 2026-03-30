@@ -30,6 +30,7 @@ This file is the short human-readable summary.
 - `codex-rs/docs/codex_mcp_interface.md`
 - `docs/config.md`
 - `codex-rs/core/prompt.md`
+- `codex-rs/core/templates/agents/orchestrator.md`
 - base-instructions templates
 - memory-consolidation templates
 - MCP codex tool configuration
@@ -44,6 +45,7 @@ This file is the short human-readable summary.
 - `anomalyco/opencode` `CONTRIBUTING.md`
 - `anomalyco/opencode` `specs/project.md`
 - `anomalyco/opencode` session prompt contracts
+- `anomalyco/opencode` `read`, `grep`, and `task` tool docs
 - `anomalyco/opencode` SDK OpenAPI session and permission schema
 - `anomalyco/opencode` verification expectations from `CONTRIBUTING.md`
 - `anomalyco/opencode` tool docs and registry files
