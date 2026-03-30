@@ -7,6 +7,7 @@ For the deeper contracts, read:
 - `references/repl-context-engineering.md`
 - `references/repl-prompt-composition.md`
 - `references/repl-memory-and-model-config.md`
+- `references/repl-token-budgeting-and-context-window-control.md`
 - `references/repl-discovery-and-workspace-awareness.md`
 - `references/repl-project-root-and-repo-scouting.md`
 - `references/repl-prompt-templates.md`
@@ -59,6 +60,7 @@ Use `ReplCoreSession` as the adapter, not as the application brain.
 For AI-oriented shells, treat `chat`, `shell`, and `multiline` as internal routing mechanics or advanced controls, not as the main workflow users must manage manually.
 When the next safe read-only discovery step is obvious, let the orchestrator inspect the current workspace instead of instructing the user to run `pwd`, `ls`, or similar commands first.
 Before deep code reasoning, let the shell scout the project root, root manifests, and root instructions so later conclusions stay grounded in the actual repo shape.
+Tie token usage to the selected model, reserve output headroom, and compact intentionally before overflow instead of replaying unbounded history.
 
 ## Canonical asset files
 

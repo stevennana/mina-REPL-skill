@@ -31,6 +31,9 @@ This file is the short human-readable summary.
 - `docs/config.md`
 - `codex-rs/core/prompt.md`
 - `codex-rs/core/templates/agents/orchestrator.md`
+- `codex-rs/app-server-protocol/schema/typescript/v2/Config.ts`
+- `codex-rs/core/src/compact.rs`
+- `codex-rs/core/src/memories/mod.rs`
 - base-instructions templates
 - memory-consolidation templates
 - MCP codex tool configuration
@@ -49,6 +52,8 @@ This file is the short human-readable summary.
 - `anomalyco/opencode` `glob` tool doc
 - `anomalyco/opencode` project `config.mdx`
 - `anomalyco/opencode` built-in `tools.mdx`
+- `anomalyco/opencode` `provider/transform.ts`
+- `anomalyco/opencode` `session/compaction.ts`
 - `anomalyco/opencode` SDK OpenAPI session and permission schema
 - `anomalyco/opencode` verification expectations from `CONTRIBUTING.md`
 - `anomalyco/opencode` tool docs and registry files

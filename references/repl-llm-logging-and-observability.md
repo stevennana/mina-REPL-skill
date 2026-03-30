@@ -36,6 +36,7 @@ Enable richer debugging when explicitly requested:
 - approval pause reasons
 - compaction events
 - token or context-budget summaries
+- model-selected output-token limit and reserved headroom
 
 These should still avoid dumping raw secrets or giant payloads by default.
 
@@ -129,3 +130,4 @@ For a Python implementation, provide:
 - trace logs for raw LLM communication after redaction
 - per-run log directory overrides for focused debugging
 - stable correlation ids across transcript, approvals, tool activity, and LLM events
+- model-aware budget events such as "small model used", "compaction threshold crossed", and "reserved headroom applied"

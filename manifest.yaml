@@ -33,6 +33,9 @@ skill:
     - prompt_template_contract
     - memory_policy_contract
     - model_config_contract
+    - token_budget_policy
+    - small_model_routing
+    - context_window_control
     - tool_loop_contract
     - tool_registry_contract
     - plan_execution_contract
@@ -73,6 +76,8 @@ skill:
     - prompt_composition_layer
     - prompt_template_layer
     - model_selection_layer
+    - token_budget_layer
+    - small_model_layer
     - tool_registry_layer
     - turn_orchestration_layer
     - plan_runner_layer

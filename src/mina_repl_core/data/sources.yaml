@@ -427,6 +427,7 @@ sources:
       - Keep memory and state-storage configuration explicit.
       - Plan-mode defaults should be configurable rather than hidden.
       - Approval and tool policy overrides belong in explicit config.
+      - Model context window and auto-compact token limits belong in explicit config rather than hidden defaults.
 
   - id: openai.codex.skill_example
     title: "openai/codex — .codex/skills/test-tui/SKILL.md"
@@ -544,6 +545,7 @@ sources:
       - Treat project-root config as first-class workspace metadata.
       - Traverse from the current directory toward the nearest Git root when locating project config.
       - Read root config before assuming model, tool, or permission behavior.
+      - The `small_model` config slot is an explicit role for lightweight tasks rather than a guessed size threshold.
 
   - id: anomaly.opencode.tools_docs
     title: "anomalyco/opencode — tools docs"
@@ -682,6 +684,33 @@ sources:
     extracted_guidance:
       - Natural-language turns should enter a real model/tool loop, not a deterministic router only.
       - Tool availability and prompt layers should be assembled before the turn starts.
+      - Output-token limits should be computed from the selected provider/model path.
+
+  - id: anomaly.opencode.provider_transform
+    title: "anomalyco/opencode — provider transform"
+    url: "https://github.com/anomalyco/opencode/blob/main/packages/opencode/src/provider/transform.ts"
+    kind: public_project
+    role: model_capability_reference
+    why_it_matters: >
+      OpenCode centralizes model capability transforms such as output-token caps, provider options,
+      and reasoning variants rather than hard-coding one static policy for every model.
+    extracted_guidance:
+      - OpenCode defaults `OUTPUT_TOKEN_MAX` to `32_000` unless overridden.
+      - Output-token policy should live in a model/provider transform layer.
+      - Reasoning effort and variant support are model-specific capabilities, not universal assumptions.
+
+  - id: anomaly.opencode.session_compaction
+    title: "anomalyco/opencode — session compaction"
+    url: "https://github.com/anomalyco/opencode/blob/main/packages/opencode/src/session/compaction.ts"
+    kind: public_project
+    role: compaction_budget_reference
+    why_it_matters: >
+      OpenCode's compaction code publishes concrete thresholds and a reserved-headroom formula,
+      which is directly useful for context-window control guidance.
+    extracted_guidance:
+      - OpenCode uses a `20_000` compaction buffer.
+      - OpenCode uses a `20_000` prune minimum and a `40_000` protect threshold.
+      - Reserved headroom defaults to `min(20_000, model max output tokens)` when not configured explicitly.
 
   - id: anomaly.opencode.debugging
     title: "anomalyco/opencode — debugging guidance"

@@ -77,6 +77,14 @@ Guidance:
 - summarize intentionally when the thread grows large
 - prefer navigational summaries over lossy opaque truncation
 - treat compaction as a policy decision, not a hidden cleanup step
+- tie budgets to the selected model instead of assuming one universal usable window
+
+Source-backed examples worth documenting directly when relevant:
+
+- Codex memory stage 1 uses `70%` of the active model's effective input window
+- Codex memory stage 1 falls back to `150_000` tokens when model window metadata is unavailable
+- Codex caps compact user-message input at `20_000` tokens
+- OpenCode defaults its output-token cap to `32_000`
 
 ## 6. Prefer structured state over prompt stuffing
 

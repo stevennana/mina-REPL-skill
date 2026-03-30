@@ -40,6 +40,7 @@ For detailed runtime architecture, read:
 - `references/repl-context-engineering.md`
 - `references/repl-prompt-composition.md`
 - `references/repl-memory-and-model-config.md`
+- `references/repl-token-budgeting-and-context-window-control.md`
 - `references/repl-discovery-and-workspace-awareness.md`
 - `references/repl-project-root-and-repo-scouting.md`
 - `references/repl-prompt-templates.md`

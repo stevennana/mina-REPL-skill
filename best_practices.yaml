@@ -121,6 +121,20 @@ best_practices:
       documented rather than buried in code or implicit defaults.
     categories: [configuration, operability]
 
+  - id: tie-token-policy-to-model-capabilities
+    title: Tie token policy to model capabilities
+    summary: >
+      Token budgets should be keyed to the selected model, provider, output-token limit,
+      and reasoning behavior instead of assuming one universal budget for every model.
+    categories: [configuration, context]
+
+  - id: use-small-model-role-explicitly
+    title: Use the small-model role explicitly
+    summary: >
+      Follow the upstream pattern of assigning smaller or cheaper models to bounded lightweight
+      tasks explicitly. Do not infer "small model" from a guessed size threshold alone.
+    categories: [configuration, architecture]
+
   - id: model-aware-prompt-composition
     title: Make prompt composition model-aware
     summary: >
@@ -291,6 +305,34 @@ best_practices:
       Compaction should preserve user intent, key constraints, and the current plan/tool state.
       It should be visible to the operator and treated as a policy decision rather than hidden cleanup.
     categories: [context, memory]
+
+  - id: reserve-context-headroom
+    title: Reserve context headroom
+    summary: >
+      Do not fill the full context window with history. Reserve headroom for instructions,
+      tool overhead, and expected model output before deciding how much prior state to include.
+    categories: [context, efficiency]
+
+  - id: compact-before-overflow
+    title: Compact before overflow
+    summary: >
+      Trigger compaction from policy thresholds before a hard context-window failure whenever the
+      implementation can see budget pressure early.
+    categories: [context, runtime]
+
+  - id: preserve-active-state-during-compaction
+    title: Preserve active state during compaction
+    summary: >
+      Compaction should keep the active plan, tool state, review state, and workspace context
+      intact rather than compressing away the information that explains the current turn.
+    categories: [context, runtime]
+
+  - id: do-not-fill-the-entire-context-window
+    title: Do not fill the entire context window
+    summary: >
+      Use only part of the available window for replayable history when the runtime can preserve
+      quality by reserving explicit headroom, as Codex does in its memory pipeline.
+    categories: [context, efficiency]
 
   - id: treat-project-docs-as-structured-context
     title: Treat project docs as structured context, not chat

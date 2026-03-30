@@ -72,6 +72,8 @@ Recommended operator-visible model config includes:
 
 - provider id
 - model id
+- small-model id when one exists
+- max output token limit when the runtime knows it
 - reasoning or effort level when relevant
 - variant or system prompt source when relevant
 
@@ -87,3 +89,4 @@ Guidance:
 - keep per-provider overrides explicit
 - avoid surprising implicit model switches
 - document when a model change affects shell behavior such as image support or reasoning level
+- document when a smaller or cheaper model is used for lightweight tasks such as summaries or titles

@@ -8,6 +8,7 @@ Read these first for the actual REPL best-practice material:
 - `references/repl-context-engineering.md`
 - `references/repl-prompt-composition.md`
 - `references/repl-memory-and-model-config.md`
+- `references/repl-token-budgeting-and-context-window-control.md`
 - `references/repl-discovery-and-workspace-awareness.md`
 - `references/repl-project-root-and-repo-scouting.md`
 - `references/repl-prompt-templates.md`
@@ -38,6 +39,7 @@ Use this `docs/` copy as a short contributor-facing summary only.
 - Keep runtime routing explicit internally, but keep natural-language turns as the primary AI-shell UX.
 - Treat startup cwd and safe autonomous discovery as first-class shell behavior.
 - Understand the project root and root metadata before deep source exploration.
+- Tie context budgets to the selected model, reserved headroom, and explicit compaction policy.
 - Treat shell execution as a separate tool channel.
 - Persist both history and transcripts.
 - Keep the runtime separate from product-specific policy and workflows.

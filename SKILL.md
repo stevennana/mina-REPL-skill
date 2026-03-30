@@ -23,6 +23,7 @@ Before redesigning or extending a REPL, read these references:
 - `references/repl-prompt-composition.md`
 - `references/repl-prompt-templates.md`
 - `references/repl-memory-and-model-config.md`
+- `references/repl-token-budgeting-and-context-window-control.md`
 - `references/repl-discovery-and-workspace-awareness.md`
 - `references/repl-project-root-and-repo-scouting.md`
 - `references/repl-tool-loop-and-turn-orchestration.md`
@@ -57,6 +58,7 @@ Before redesigning or extending a REPL, read these references:
 - approval and autonomy policy need a clear operator contract
 - context engineering and prompt composition need a clear operator contract
 - memory and model configuration need a clear operator contract
+- model-aware token budgeting and efficient context-window control need to be explicit
 - tool-driven multiturn behavior needs to stay explicit and inspectable
 - prompt templates and composition rules need to stay explicit and reusable
 - verification and recovery policies need to stay explicit and reviewable
@@ -97,6 +99,7 @@ Higher-level project code should own:
    - instruction layering and prompt-composition semantics
    - reusable prompt templates
    - memory and model-selection semantics
+   - token-budget and context-window semantics
    - project-root and repo-metadata scouting semantics
    - workspace-awareness and discovery semantics
    - tool loop and turn state semantics
@@ -119,6 +122,7 @@ Higher-level project code should own:
 - Keep reusable prompt skeletons for base, developer, compact, plan, and build behavior.
 - Keep short-term and long-term memory policies explicit.
 - Keep provider/model configuration explicit and operator-visible.
+- Keep token budgets tied to the selected model, reserved headroom, and compaction policy.
 - Treat startup cwd and explicit target overrides as durable workspace context.
 - Scout the project root and root metadata before drawing conclusions from deep source files.
 - Prefer orchestrator-led safe discovery before asking the user to run obvious read-only shell commands.

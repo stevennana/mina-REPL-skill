@@ -168,12 +168,42 @@ contracts:
         type: string
       - name: model_id
         type: string
+      - name: small_model_id
+        type: string
+        optional: true
+      - name: max_output_tokens
+        type: integer
+        optional: true
       - name: reasoning_effort
         type: string
         optional: true
       - name: variant
         type: string
         optional: true
+
+  token_budget_policy:
+    fields:
+      - name: context_window_known
+        type: boolean
+      - name: reserves_instruction_headroom
+        type: boolean
+      - name: reserves_output_headroom
+        type: boolean
+      - name: compacts_before_overflow
+        type: boolean
+      - name: preserves_active_turn_state
+        type: boolean
+
+  small_model_policy:
+    fields:
+      - name: small_model_available
+        type: boolean
+      - name: small_model_tasks_defined
+        type: boolean
+      - name: model_switch_visible
+        type: boolean
+      - name: silent_primary_reasoning_switches_allowed
+        type: boolean
 
   context_budget_policy:
     fields:

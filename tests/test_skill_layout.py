@@ -30,6 +30,7 @@ class SkillLayoutTests(unittest.TestCase):
             "repl-context-engineering.md",
             "repl-prompt-composition.md",
             "repl-memory-and-model-config.md",
+            "repl-token-budgeting-and-context-window-control.md",
             "repl-discovery-and-workspace-awareness.md",
             "repl-project-root-and-repo-scouting.md",
             "repl-prompt-templates.md",
@@ -78,6 +79,9 @@ class SkillLayoutTests(unittest.TestCase):
         scouting_text = (
             ROOT / "references" / "repl-project-root-and-repo-scouting.md"
         ).read_text(encoding="utf-8")
+        budget_text = (
+            ROOT / "references" / "repl-token-budgeting-and-context-window-control.md"
+        ).read_text(encoding="utf-8")
         self.assertIn("natural-language requests", skill_text)
         self.assertIn("internal routing states", runtime_text)
         self.assertIn("should not become the main product mental model", runtime_text)
@@ -85,6 +89,8 @@ class SkillLayoutTests(unittest.TestCase):
         self.assertIn("Discover before asking the user", discovery_text)
         self.assertIn("project root", scouting_text)
         self.assertIn("root metadata", scouting_text)
+        self.assertIn("32_000", budget_text)
+        self.assertIn("70%", budget_text)
 
 
 if __name__ == "__main__":
