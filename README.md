@@ -1,14 +1,61 @@
 # Mina REPL Core
 
-`mina-repl-core` is a root-level Codex skill and a Python package for building REPL-first AI
-terminal applications in Python.
+`mina-repl-core` is a Codex skill and a Python package for building AI REPL shells in Python.
 
-This repository is intentionally a hybrid:
+In simple terms, this project helps you build a terminal-based AI agent that can:
+
+- accept normal natural-language requests
+- keep multi-turn session history
+- run tools and shell commands through a controlled runtime
+- show transcript, status, and tool activity clearly
+- grow from a simple REPL into a richer terminal UI later
+
+This repository is intentionally a hybrid project:
 
 - the repo root is the skill root, so it can be symlinked directly into `$CODEX_HOME/skills/`
 - `src/mina_repl_core/` contains the reusable Python runtime package
 - `references/` contains the canonical deep guidance the skill should read when it triggers
 - `docs/` contains lighter repo-facing summaries for contributors and integrators
+
+## Where The Guidance Comes From
+
+The best-practice guidance in this project is based mostly on the **source code and docs** of:
+
+- OpenAI `codex`
+- `anomalyco/opencode`
+
+This is an important point: the guidance here is not just generic REPL advice. It is largely
+extracted from how those projects actually model:
+
+- orchestrator-driven tool use
+- context and prompt layering
+- approvals and visible turn state
+- repo discovery and workspace awareness
+- token budgeting, compaction, and model-aware context control
+- terminal UX patterns for transcript, input, and footer/status surfaces
+
+This project translates those ideas into a Python-focused skill and runtime foundation.
+
+## What This Project Is
+
+Use `mina-repl-core` when you want a reusable base for an AI shell, not when you want to encode
+one product's domain-specific business logic.
+
+`mina-repl-core` is responsible for runtime concerns such as:
+
+- prompt lifecycle
+- internal routing state
+- transcript and history persistence
+- shell/tool bridge boundaries
+- structured terminal rendering
+- REPL-first extension points
+
+It is **not** the place to hard-code:
+
+- product-specific workflows
+- business rules
+- domain-specific troubleshooting logic
+- one team's repo conventions
 
 ## Skill Layout
 
@@ -112,30 +159,27 @@ python tools/sync_skill_assets.py --check
 python -m unittest discover -s tests -q
 ```
 
-## What The Runtime Owns
+## How To Think About It
 
-`mina-repl-core` is the reusable runtime layer. It owns:
+For AI-oriented shells, the intended operator experience is:
 
-- multi-turn prompt lifecycle
-- explicit internal routing for assistant turns, manual shell overrides, and multiline drafting
-- slash-command routing
-- transcript and history persistence
-- shell execution through a dedicated bridge
-- structured terminal rendering
+- the user types natural-language requests
+- the orchestrator decides when to inspect files, use tools, or ask for approval
+- the shell shows what happened in the transcript and status surfaces
+- manual commands like `/run` stay available, but they are not the main workflow
 
-It should not be the place where project-specific business logic, approval policy, or product
-workflows live.
+That means `chat`, `shell`, and `multiline` are runtime mechanics, not the main UX the user should
+have to manage directly.
 
-For AI-oriented shells, users should normally type natural-language requests; tool and shell selection should happen through the orchestrator, with approval pauses when required.
+It also means:
 
-That means `chat`, `shell`, and `multiline` should be treated as runtime routing states, not as the main product UX a user has to manage manually.
-It also means the shell should inspect the current workspace itself when the next safe read-only discovery step is obvious, instead of asking the user to type `pwd`, `ls`, or similar commands first.
-It should also understand the project root and root metadata early, using tree and manifest inspection before jumping into arbitrary deep source files.
-Token usage should be controlled with explicit model-aware headroom, compaction, and small-model routing rather than by filling the entire context window.
+- the shell should inspect the current workspace itself when the next safe read-only step is obvious
+- the shell should understand the project root and root metadata early
+- token usage should be controlled with model-aware headroom and compaction rather than by filling the entire context window
 
 ## Canonical Reading Order
 
-If you are using this repo as a skill, read in this order:
+If you are using this repo as a skill, start here:
 
 1. `SKILL.md`
 2. `references/repl-runtime-contract.md`
@@ -145,27 +189,15 @@ If you are using this repo as a skill, read in this order:
 6. `references/repl-token-budgeting-and-context-window-control.md`
 7. `references/repl-discovery-and-workspace-awareness.md`
 8. `references/repl-project-root-and-repo-scouting.md`
-9. `references/repl-tool-loop-and-turn-orchestration.md`
-10. `references/repl-plan-execution.md`
-11. `references/repl-prompt-templates.md`
-12. `references/repl-mcp-and-tool-registry.md`
-13. `references/repl-tool-selection-and-usage.md`
-14. `references/repl-orchestrator-guidance.md`
-15. `references/repl-approval-and-autonomy.md`
-16. `references/repl-session-lifecycle.md`
-17. `references/repl-plan-build-modes.md`
-18. `references/repl-architecture.md`
-19. `references/repl-extension-points.md`
-20. `references/repl-terminal-ui-best-practices.md`
-21. `references/repl-llm-logging-and-observability.md`
-22. `references/repl-verification-and-evaluation.md`
-23. `references/repl-failure-and-recovery.md`
-24. `references/repl-maturity-matrix.md`
-25. `references/repl-source-traceability.md`
-26. `references/repl-subsystem-map-codex.md`
-27. `references/repl-subsystem-map-opencode.md`
-28. `references/repl-source-baseline.md`
-29. `references/repl-design-opencode.md`
+
+Then continue into the other `references/` files as needed.
+
+If you want to verify where the guidance came from, read:
+
+- `references/repl-source-traceability.md`
+- `references/repl-subsystem-map-codex.md`
+- `references/repl-subsystem-map-opencode.md`
+- `references/repl-source-baseline.md`
 
 ## Example Import
 
